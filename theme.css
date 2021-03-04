@@ -536,11 +536,6 @@ span[data-type="counter"]:active,
   display: none;
 }
 
-/* 代码中的中文字体 */
-.vditor-ir__marker--script {
-  font-family: var(--b3-font-family-code);
-}
-
 /* 表格 */
 .vditor-ir table tr {
   border-top: 1.6px solid var(--Notion-table-border-color);
@@ -764,7 +759,7 @@ span[data-type="a"]:hover {
 .vditor-ir--tip *[tip]:not([fold="1"]) {
   /* box-shadow: var(--b3-dialog-shadow); */
   border-radius: 3px;
-  border-right: 1px solid var(--Notion-text-border-color);
+  border-right: 2px solid var(--Notion-text-border-color);
 }
 
 .vditor-ir--tip *[tip]:not([fold="1"])::before {
