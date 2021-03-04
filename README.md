@@ -6,7 +6,7 @@
 
 ## 简介
 
-- 参考Notion的One Dark Pro主题
+- 参考Notion的Light主题
 - 所做的工作
   - 整体配色更改
   - 样式更改
