@@ -130,7 +130,8 @@
   --b3-dialog-shadow: var(--Notion-dialog-shadow);
   --Notion-dialog-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
     rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
-  --Notion-toolbar-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+  --Notion-img-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
+  rgba(15, 15, 15, 0.1) 0px 3px 5px, rgba(15, 15, 15, 0.2) 4px 6px 8px;
 
   /* diff */
   --b3-diff-add: #dfd;
@@ -322,7 +323,7 @@
   background-color: var(--Notion-theme-surface);
 }
 
-.b3-tab-container .b3-button {
+.b3-tab-container .b3-button:not(.b3-button--text) {
   color: var(--Notion-theme-background) !important;
 }
 
@@ -357,9 +358,11 @@
 /* 侧边栏页签列表和顶栏按钮 */
 .file-tree .fn__flex-1 .b3-list-item:hover,
 .b3-tab-bar .b3-list-item:hover,
-.block__icons:hover {
+.block__icons:hover,
+.block__icons:hover .fn__flex-1 {
   background-color: var(--Notion-list-background-hover) !important;
 }
+
 
 /* 侧边栏页签列表上的按钮 */
 .b3-list-item__action:hover,
@@ -838,12 +841,22 @@ blockquote {
 }
 
 /* 五种卡片的样式调整 */
-span[data-type="img"] img,
 .vditor-ir div[data-type="block-ref-embed"] > div[data-render],
 .vditor-ir div[data-type="block-query-embed"] > div[data-render] {
   margin-top: 1.2em !important;
   margin-bottom: 1.5em !important;
   box-shadow: var(--b3-dialog-shadow);
+}
+
+span[data-type="img"] img,
+.vditor-ir blockquote,
+.vditor-ir table{
+  margin-top: 1.2em !important;
+  margin-bottom: 1.5em !important;
+}
+
+span[data-type="img"] img{
+  box-shadow: var(--Notion-img-shadow);
 }
 
 /* 多种行内元素的样式调整 */
