@@ -618,6 +618,9 @@ span[data-type="counter"]:active,
   margin-top: 8px;
 }
 
+.vditor-ir__menu[title^="嵌入块"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
+  margin-top: -5px;
+}
 /* .vditor-ir__menu[title^="段落"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
   margin-top: 0px;
 } */
@@ -673,8 +676,8 @@ span[data-type="counter"]:active,
 /* 任务列表选中 */
 .vditor-task input[type="checkbox"]:checked:before {
   content: "\2713";
-  font-size: 0.8rem;
-  line-height: 0.65rem;
+  font-size: 1.2rem;
+  line-height: 0.8rem;
   color: var(--Notion-theme-background);
   border-color: var(--Notion-tolist-done-background-hover);
   background-color: var(--Notion-tolist-done-background-hover);
@@ -789,10 +792,9 @@ span[data-type="code"] {
   font-style: normal;
   font-weight: normal;
 }
-
 span[data-type="code"] > code {
-  color: var(--Notion-vditor-inline-code-color);
-  background-color: var(--Notion-vditor-inline-code-background);
+  color: var(--Notion-vditor-inline-code-color) !important;
+  background-color: var(--Notion-vditor-inline-code-background) !important;
 }
 
 /* 块引用样式 */
@@ -879,4 +881,9 @@ span[data-type="inline-math"]
 /* 高亮 */
 .vditor-ir__hl {
   background-color: rgb(213, 238, 248) !important;
+}
+
+/* 键盘符 */
+kbd{
+  background-color: var(--Notion-vditor-inline-code-background) !important;
 }
