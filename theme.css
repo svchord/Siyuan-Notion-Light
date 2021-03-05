@@ -4,23 +4,23 @@
   src: url("fonts/JetBrainsMono-Regular.ttf");
 }
 
-@font-face {
+/* @font-face {
   font-family: "PingFang SC";
   font-style: normal;
   src: url("fonts/PingFang-SC-Regular.ttf");
-}
+} */
 
 @font-face {
   font-family: "PingFang SC Bold";
   font-style: normal;
   src: url("fonts/PingFang-SC-Bold.ttf");
 }
-/* 
+
 @font-face {
   font-family: "Noto Sans SC";
   font-style: normal;
   src: url("fonts/NotoSansSC-Regular.otf");
-} */
+}
 
 :root {
   /* 主色 */
@@ -52,11 +52,11 @@
   --Notion-todolist-done-color: rgba(55, 53, 47, 0.375);
 
   /* 字体 */
-  --b3-font-family: "PingFang SC", "Jetbrains Mono", "Helvetica Neue",
+  --b3-font-family: "Noto Sans SC", "Jetbrains Mono", "Helvetica Neue",
     "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji",
     "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
-  --b3-font-family-code: "Jetbrains Mono", "PingFang SC", mononoki, Consolas,
+  --b3-font-family-code: "Jetbrains Mono", "Noto Sans SC", mononoki, Consolas,
     "Liberation Mono", Menlo, Courier, monospace, "Apple Color Emoji",
     "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
     "EmojiSymbols";
@@ -239,7 +239,7 @@
   transition: opacity 400ms ease 0s;
   opacity: 0;
   margin: 0 2px;
-  padding-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__item {
