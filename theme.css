@@ -227,7 +227,7 @@
 }
 
 /* 富文本工具栏 */
-.vditor-toolbar {
+.vditor-toolbar:not(.vditor-toolbar--hide) {
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: var(--Notion-theme-background) !important;
@@ -237,7 +237,7 @@
   opacity: 0;
   margin: 0 2px;
 }
-.vditor-toolbar:hover .vditor-toolbar__item {
+.vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__item {
   opacity: 1;
 }
 
