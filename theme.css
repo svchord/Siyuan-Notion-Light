@@ -131,7 +131,7 @@
   --Notion-dialog-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
     rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
   --Notion-img-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
-  rgba(15, 15, 15, 0.1) 0px 3px 5px, rgba(15, 15, 15, 0.2) 4px 6px 8px;
+    rgba(15, 15, 15, 0.1) 0px 3px 5px, rgba(15, 15, 15, 0.2) 4px 6px 8px;
 
   /* diff */
   --b3-diff-add: #dfd;
@@ -362,7 +362,6 @@
 .block__icons:hover .fn__flex-1 {
   background-color: var(--Notion-list-background-hover) !important;
 }
-
 
 /* 侧边栏页签列表上的按钮 */
 .b3-list-item__action:hover,
@@ -618,7 +617,7 @@ span[data-type="counter"]:active,
 }
 
 .vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
-  margin-top: 8px;
+  margin-top: 7px;
 }
 
 .vditor-ir__menu[title^="嵌入块"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
@@ -633,26 +632,26 @@ span[data-type="counter"]:active,
 } */
 
 /* 计数块旁的元素调整 */
-.vditor-ir--tip > h1,
-.vditor-ir--tip > h2,
-.vditor-ir--tip > h3,
-.vditor-ir--tip > h4,
-.vditor-ir--tip > h5,
-.vditor-ir--tip > h6 {
+.vditor-ir .vditor-reset > h1,
+.vditor-ir .vditor-reset > h2,
+.vditor-ir .vditor-reset > h3,
+.vditor-ir .vditor-reset > h4,
+.vditor-ir .vditor-reset > h5,
+.vditor-ir .vditor-reset > h6 {
   margin-left: 7px;
   line-height: 2;
 }
 
-.vditor-ir--tip > p,
-.vditor-ir--tip > .hlhs,
-.vditor-ir--tip > table,
-.vditor-ir--tip > ul,
-.vditor-ir--tip > ol,
-.vditor-ir--tip > .vditor-ir__node {
+.vditor-ir .vditor-reset > p,
+.vditor-ir .vditor-reset > .hlhs,
+.vditor-ir .vditor-reset > table,
+.vditor-ir .vditor-reset > ul,
+.vditor-ir .vditor-reset > ol,
+.vditor-ir .vditor-reset > .vditor-ir__node {
   margin-left: 7px;
 }
 
-.vditor-ir--tip > blockquote {
+.vditor-ir .vditor-reset > blockquote {
   margin-left: 0.55em;
 }
 
@@ -762,13 +761,13 @@ span[data-type="a"]:hover {
 }
 
 /* 命名、别名的样式 */
-.vditor-ir--tip *[tip]:not([fold="1"]) {
+.vditor-ir .vditor-reset *[tip]:not([fold="1"]) {
   /* box-shadow: var(--b3-dialog-shadow); */
   border-radius: 3px;
   border-right: 2px solid var(--Notion-text-border-color);
 }
 
-.vditor-ir--tip *[tip]:not([fold="1"])::before {
+.vditor-ir .vditor-reset *[tip]:not([fold="1"])::before {
   border-radius: 3px;
   padding: 0.2em 0.4em;
   background-color: var(--Notion-theme-surface);
@@ -827,7 +826,7 @@ span[data-type="code"] > code {
 }
 
 /* 段落块样式 */
-.vditor-ir--tip p:not(img) {
+.vditor-ir .vditor-reset p:not(img) {
   line-height: 2;
   /* text-align: justify; */
 }
@@ -850,12 +849,12 @@ blockquote {
 
 span[data-type="img"] img,
 .vditor-ir blockquote,
-.vditor-ir table{
+.vditor-ir table {
   margin-top: 1.2em !important;
   margin-bottom: 1.5em !important;
 }
 
-span[data-type="img"] img{
+span[data-type="img"] img {
   box-shadow: var(--Notion-img-shadow);
 }
 
@@ -897,6 +896,6 @@ span[data-type="inline-math"]
 }
 
 /* 键盘符 */
-kbd{
+kbd {
   background-color: var(--Notion-vditor-inline-code-background) !important;
 }
