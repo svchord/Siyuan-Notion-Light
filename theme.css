@@ -196,7 +196,9 @@
   --b3-vditor-inline-em-color: #202124;
   --b3-vditor-inline-s-color: #202124;
   --b3-vditor-inline-link-color: var(--Notion-vditor-inline-link-color);
-  --b3-vditor-inline-mark-background: var(--Notion-vditor-inline-mark-background);
+  --b3-vditor-inline-mark-background: var(
+    --Notion-vditor-inline-mark-background
+  );
   --b3-vditor-inline-mark-color: #202124;
   --b3-vditor-inline-tag-color: #5f6368;
   --b3-vditor-inline-blockref-color: var(--Notion-vditor-inline-blockref-color);
@@ -260,7 +262,7 @@
 
 /* 侧边栏 */
 .file-tree .fn__flex-1,
-.b3-tab-bar {
+.b3-list--background {
   background-color: var(--Notion-theme-surface);
 }
 
@@ -314,7 +316,7 @@
   background-color: var(--Notion-text-border-color);
 }
 /* 设置菜单 */
-.b3-tab-bar,
+.b3-list--background,
 .b3-tab-container * {
   font-family: "PingFang SC Bold";
 }
@@ -378,8 +380,7 @@
 }
 
 /* 侧边栏页签列表和顶栏按钮 */
-.file-tree .fn__flex-1 .b3-list-item:hover,
-.b3-tab-bar .b3-list-item:hover,
+.b3-list--background .b3-list-item:hover,
 .block__icons:hover,
 .block__icons:hover .fn__flex-1 {
   background-color: var(--Notion-list-background-hover) !important;
@@ -403,15 +404,12 @@ span[data-type="counter"]:hover,
 }
 
 /* 侧边栏页签列表 */
-.file-tree .fn__flex-1 .b3-list-item:active,
-.b3-tab-bar .b3-list-item:active {
+.b3-list--background .b3-list-item:active {
   background-color: var(--Notion-list-background-click) !important;
 }
 
-.file-tree .fn__flex-1 .b3-list-item:active .b3-list-item__text,
-.file-tree .fn__flex-1 .b3-list-item:active .b3-list-item__graphic,
-.b3-tab-bar .b3-list-item:active .b3-list-item__text,
-.b3-tab-bar .b3-list-item:active .b3-list-item__graphic {
+.b3-list--background .b3-list-item:active .b3-list-item__text,
+.b3-list--background .b3-list-item:active .b3-list-item__graphic {
   color: var(--Notion-theme-on-surface-focus) !important;
 }
 
@@ -433,15 +431,12 @@ span[data-type="counter"]:active,
 }
 
 /* 侧边栏页签列表 */
-.file-tree .fn__flex-1 .b3-list-item--focus,
-.b3-tab-bar .b3-list-item--focus {
+.b3-list--background .b3-list-item--focus {
   background-color: var(--Notion-list-background-focus) !important;
 }
 
-.file-tree .fn__flex-1 .b3-list-item--focus .b3-list-item__text,
-.file-tree .fn__flex-1 .b3-list-item--focus .b3-list-item__graphic,
-.b3-tab-bar .b3-list-item--focus .b3-list-item__text,
-.b3-tab-bar .b3-list-item--focus .b3-list-item__graphic {
+.b3-list--background .b3-list-item--focus .b3-list-item__text,
+.b3-list--background .b3-list-item--focus .b3-list-item__graphic {
   color: var(--Notion-theme-on-surface-focus) !important;
 }
 
@@ -453,20 +448,15 @@ span[data-type="counter"]:active,
 }
 
 /* 侧边栏页签列表 */
-.file-tree .fn__flex-1 .b3-list-item--focus:hover,
-.b3-tab-bar .b3-list-item--focus:hover {
+.b3-list--background .b3-list-item--focus:hover {
   background-color: var(--Notion-list-background-focus-hover) !important;
 }
 
 /* 侧边栏页签列表上的按钮 */
-.file-tree .fn__flex-1 .b3-list-item--focus .b3-list-item__action:hover,
-.file-tree .fn__flex-1 .b3-list-item--focus span[data-type="counter"]:hover,
+.b3-list--background .b3-list-item--focus .b3-list-item__action:hover,
+.b3-list--background .b3-list-item--focus span[data-type="counter"]:hover,
 .layout__wnd--active .layout-tab-bar .item--focus .item__close:hover,
-.file-tree .fn__flex-1 .b3-list-item--focus .b3-list-item__graphic--arrow:hover,
-.file-tree
-  .fn__flex-1
-  .b3-list-item--focus
-  .b3-list-item__graphic--arrow:hover {
+.b3-list--background .b3-list-item--focus .b3-list-item__graphic--arrow:hover {
   background-color: var(--Notion-button-background-focus-hover) !important;
 }
 
@@ -478,23 +468,15 @@ span[data-type="counter"]:active,
 }
 
 /* 侧边栏页签列表 */
-.file-tree .fn__flex-1 .b3-list-item--focus:active,
-.b3-tab-bar .b3-list-item--focus:active {
+.b3-list--background .b3-list-item--focus:active {
   background-color: var(--Notion-list-background-focus-click) !important;
 }
 
 /* 侧边栏页签列表上的按钮 */
-.file-tree .fn__flex-1 .b3-list-item--focus .b3-list-item__action:active,
-.file-tree .fn__flex-1 .b3-list-item--focus span[data-type="counter"]:active,
+.b3-list--background .b3-list-item--focus .b3-list-item__action:active,
+.b3-list--background .b3-list-item--focus span[data-type="counter"]:active,
 .layout__wnd--active .layout-tab-bar .item--focus .item__close:active,
-.file-tree
-  .fn__flex-1
-  .b3-list-item--focus
-  .b3-list-item__graphic--arrow:active,
-.file-tree
-  .fn__flex-1
-  .b3-list-item--focus
-  .b3-list-item__graphic--arrow:active {
+.b3-list--background .b3-list-item--focus .b3-list-item__graphic--arrow:active {
   background-color: var(--Notion-button-background-focus-click) !important;
 }
 
@@ -930,4 +912,9 @@ span[data-type="inline-math"]
 /* 键盘符 */
 kbd {
   background-color: var(--Notion-vditor-inline-code-background) !important;
+}
+
+/* mermaid */
+.edgeLabel * {
+  background-color: var(--Notion-theme-background) !important;
 }
