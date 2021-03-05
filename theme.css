@@ -87,13 +87,13 @@
 
   --Notion-tab-background: var(--Notion-theme-background);
   --Notion-tab-background-hover: rgb(239, 239, 239);
-  --Notion-tab-background-click: rgb(223, 223, 222);
+  --Notion-tab-background-click: rgb(203, 202, 199);
   --Notion-tab-background-focus: var(--Notion-tab-background-hover);
-  --Notion-tab-background-focus-hover: var(--Notion-tab-background-hover);
+  --Notion-tab-background-focus-hover: rgb(218, 217, 214);
   --Notion-tab-background-focus-click: rgb(203, 202, 199);
 
   --Notion-list-background-hover: rgb(232, 231, 228);
-  --Notion-list-background-click: rgb(216, 215, 212);
+  --Notion-list-background-click: rgb(203, 202, 199);
   --Notion-list-background-focus: var(--Notion-list-background-hover);
   --Notion-list-background-focus-hover: rgb(218, 217, 214);
   --Notion-list-background-focus-click: rgb(203, 202, 199);
@@ -381,7 +381,8 @@ span[data-type="counter"]:hover,
 }
 
 /* 侧边栏页签列表 */
-.file-tree .fn__flex-1 .b3-list-item:active .b3-tab-bar .b3-list-item:active {
+.file-tree .fn__flex-1 .b3-list-item:active,
+.b3-tab-bar .b3-list-item:active {
   background-color: var(--Notion-list-background-click) !important;
 }
 
@@ -617,7 +618,7 @@ span[data-type="counter"]:active,
 }
 
 .vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
-  margin-top: 7px;
+  margin-top: -.4em;
 }
 
 .vditor-ir__menu[title^="嵌入块"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
@@ -639,7 +640,7 @@ span[data-type="counter"]:active,
 .vditor-ir .vditor-reset > h5,
 .vditor-ir .vditor-reset > h6 {
   margin-left: 7px;
-  line-height: 2;
+  /* line-height: 2; */
 }
 
 .vditor-ir .vditor-reset > p,
@@ -709,7 +710,7 @@ span[data-type="counter"]:active,
   border-bottom: 1px solid var(--Notion-list-border-color) !important;
 }
 
-.vditor-ir h1,
+/* .vditor-ir h1,
 .vditor-ir h2,
 .vditor-ir h3,
 .vditor-ir h4,
@@ -717,7 +718,7 @@ span[data-type="counter"]:active,
 .vditor-ir h6 {
   padding-top: 0.6em;
   margin-bottom: 0.4em;
-}
+} */
 
 /* 列表块中的标题块样式 */
 .vditor-ir ul h1,
