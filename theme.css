@@ -488,6 +488,7 @@ span[data-type="counter"]:active,
   margin-bottom: 20px;
 }
 
+
 .vditor-ir ul p,
 .vditor-ir ol p {
   margin-bottom: 0 !important;
@@ -702,15 +703,7 @@ span[data-type="counter"]:active,
 }
 
 /* 标题块 */
-/* .vditor-ir h1,
-.vditor-ir h2,
-.vditor-ir h3,
-.vditor-ir h4,
-.vditor-ir h5,
-.vditor-ir h6{
-  padding: 3px 0;
-}  */
-
+/* 
 .vditor-ir h1 {
   font-size: 1.875em;
   border: none;
@@ -741,8 +734,8 @@ span[data-type="counter"]:active,
 .vditor-ir h6 {
   font-size: 1.25em;
   margin-bottom: 4px;
-}
-*/
+} */
+
 
 /* 列表块中的标题块样式 */
 .vditor-ir ul h1,
