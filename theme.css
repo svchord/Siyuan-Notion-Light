@@ -195,7 +195,7 @@
   --b3-vditor-inline-tag-color: #5f6368;
   --b3-vditor-inline-blockref-color: var(--Notion-vditor-inline-blockref-color);
   --Notion-vditor-inline-link-color: var(--Notion-theme-color);
-  --Notion-vditor-inline-blockref-color: var(--Notion-theme-primary);
+  --Notion-vditor-inline-blockref-color: rgb(11,110,153);
   --Notion-vditor-inline-code-color: #eb5757;
   --Notion-vditor-inline-code-background: rgba(135, 131, 120, 0.15);
   --Notion-vditor-inline-mark-background: rgb(250, 235, 221);
@@ -224,8 +224,8 @@
 
 /* 富文本工具栏 */
 .vditor-toolbar:not(.vditor-toolbar--hide) {
-  background-color: var(--Notion-theme-background) !important;
-  /* border-bottom: 1px solid #111111; */
+  /* background-color: var(--Notion-theme-background) !important; */
+  border: none;
 }
 
 .vditor-toolbar__item {
@@ -235,7 +235,27 @@
   padding: 0 5px;
   height: 27px;
   margin-bottom: 4px;
+/* 
+  height: 22px;
+  padding: 0px 4px; */
 }
+/* 
+.vditor-toolbar__divider{
+  margin: 4.5px 6px;
+  height: 13px;
+}
+
+.vditor-toolbar__item svg{
+  width: 11.5px;
+  height: 11.5px;
+}
+
+.vditor-toolbar__item[data-type="upload"]{
+  padding-top: 6px;
+  width: 22px;
+
+} */
+
 
 .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__item {
   opacity: 1;
@@ -261,8 +281,12 @@
   background-color: var(--Notion-theme-surface);
 }
 
-.file-tree * {
+.file-tree:not(.config-keymap) * {
   color: var(--Notion-theme-on-surface) !important;
+}
+
+.ft__on-surface{
+  color: var(--Notion-theme-on-backgroud);
 }
 
 /* 侧边栏顶栏按钮 */
@@ -297,6 +321,7 @@
 /* 菜单样式 */
 .b3-menu {
   border-radius: 3px;
+  animation: showBlock 0.3s ease-in-out;
 }
 
 /* 顶栏弹出菜单 */
@@ -321,6 +346,7 @@
 
 .b3-select {
   background-color: var(--Notion-theme-surface);
+  cursor: pointer;
 }
 
 .b3-button:not(.b3-button--text) {
@@ -333,22 +359,10 @@
 }
 
 /* 滚动条 */
-/* ::-webkit-scrollbar {
-  background-color: rgb(237, 236, 233);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--Notion-theme-background);
-  transition: background-color 1000ms ease 0s;
-}
-
-::-webkit-scrollbar:hover ::-webkit-scrollbar-thumb {
-  background-color: var(--Notion-scroll-color);
-} */
-
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(174, 172, 166);
 }
+
 
 /* ----------------------------------------------------------------------------------------------------------------- */
 
@@ -484,10 +498,9 @@ span[data-type="counter"]:active,
 }
 
 .vditor-ir ul,
-.vditor-ir ol{
+.vditor-ir ol {
   margin-bottom: 20px;
 }
-
 
 .vditor-ir ul p,
 .vditor-ir ol p {
@@ -507,7 +520,7 @@ span[data-type="counter"]:active,
 .vditor-ir ol ol,
 .vditor-ir ol ul {
   border-left: 1px solid var(--Notion-list-border-color);
-  margin-left: -0.9em !important;
+  margin-left: -0.7em !important;
   padding-left: 2.8em !important; /* 父子结点之间的距离 */
 }
 
@@ -601,20 +614,20 @@ span[data-type="counter"]:active,
 
 /* 引用计数块的样式 */
 .vditor-ir__menu span {
-  padding: 0.7px 3px 0 3px;
+  padding: 0px 3px;
   margin: 2px 0 0 2px;
   border-radius: 4px;
   height: 15.5px;
   min-width: 15.5px;
   background-color: var(--Notion-menu-background);
-  color: var(--Notion-menu-color-hover);
+  color: var(--Notion-theme-on-surface);
   font-size: 11px;
   line-height: 15.5px;
 }
 
 /* 备注时引用计数块的样式 */
 .vditor-ir__menu--memo span {
-  background-color: var(--Notion-tab-background-click);
+  background-color: var(--Notion-list-background-hover);
   color: var(--Notion-theme-on-surface-focus);
 }
 
@@ -736,7 +749,6 @@ span[data-type="counter"]:active,
   margin-bottom: 4px;
 } */
 
-
 /* 列表块中的标题块样式 */
 .vditor-ir ul h1,
 .vditor-ir ul h2,
@@ -827,8 +839,20 @@ span[data-type="code"] > code {
 }
 
 /* 块引用预览的样式 */
-.block__popover {
+.block__popover--open {
   box-shadow: var(--b3-dialog-shadow);
+  animation: showBlock 0.3s ease-in-out;
+}
+
+@keyframes showBlock {
+  0% {
+    margin-top:6.5px;
+    opacity: 0;
+  }
+  100% {
+    margin-top:0px;
+    opacity: 1;
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------- */
@@ -864,7 +888,6 @@ blockquote {
   margin-bottom: 1.5em !important;
   box-shadow: var(--b3-dialog-shadow);
 }
-
 .vditor-ir div[data-type="code-block"],
 span[data-type="img"] img,
 .vditor-ir blockquote,
@@ -931,4 +954,9 @@ kbd {
 /* mermaid */
 .edgeLabel * {
   background-color: var(--Notion-theme-background) !important;
+}
+
+.vditor-ir__blockref:hover{
+  /* text-decoration: underline; */
+  border-bottom: 1px solid var(--Notion-vditor-inline-blockref-color);
 }
