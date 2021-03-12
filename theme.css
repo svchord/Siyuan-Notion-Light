@@ -77,7 +77,7 @@
 
   /* 滚动条 */
   --b3-scroll-color: var(--Notion-scroll-color);
-  --Notion-scroll-color: rgb(211, 209, 203);
+  --Notion-scroll-color: #D3D1CB;
 
   /* 列表 */
   --b3-list-hover: rgba(0, 0, 0, 0.05);
@@ -386,8 +386,38 @@
 }
 
 /* 滚动条 */
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(174, 172, 166);
+.block__icons + .fn__flex-1::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.block__icons + .fn__flex-1:hover::-webkit-scrollbar-thumb{
+  background-color: var(--Notion-scroll-color);
+} 
+
+.vditor-content::after{
+  content: '';
+  width: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  transition: all .3s linear;
+}
+
+.vditor-content:hover::after{
+    background-color: transparent;
+    animation: showScrollBar .3s linear;
+    animation-fill-mode: forwards;
+}
+@keyframes showScrollBar {
+    100% {
+        z-index: -1;
+    }
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(174, 172, 166) !important;
 }
 
 /* 块引用预览浮窗的样式 */
@@ -395,6 +425,21 @@
   box-shadow: var(--b3-dialog-shadow);
   animation: showBlock 0.3s ease-in-out;
 }
+
+/* 分栏中间的分隔线 */
+/* .layout > .fn__flex > .fn__flex-1 > .layout__resize--lr::after{
+  top:45%;
+  height: 10%;
+  width: 1px;
+  background-color: var(--Notion-scroll-color);
+}
+
+.layout > .fn__flex > .fn__flex-1 > .layout__resize:not(.layout__resize--lr)::after{
+  left: 45%;
+  width: 10%;
+  height: 1px;
+  background-color: var(--Notion-scroll-color);
+} */
 
 /* ----------------------------------------------------------------------------------------------------------------- */
 
