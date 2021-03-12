@@ -22,8 +22,8 @@
 
 @keyframes showView {
   0% {
-      transform: translateY(25px);
-      opacity: 0;
+    transform: translateY(25px);
+    opacity: 0;
   }
   100% {
     opacity: 1;
@@ -357,8 +357,8 @@
 }
 
 /* 设置菜单 */
-.b3-dialog__container{
-  animation: showView .35s ease-in-out;
+.b3-dialog__container {
+  animation: showView 0.35s ease-in-out;
 }
 
 .b3-list--background,
@@ -376,7 +376,7 @@
   cursor: pointer;
 }
 
-.b3-select:focus{
+.b3-select:focus {
   box-shadow: none;
 }
 
@@ -643,7 +643,7 @@ span[data-type="counter"]:active,
 }
 
 .vditor-ir__menu--fold button svg {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 /* .vditor-ir__menu--hover:not(.vditor-ir__menu--counter){
@@ -736,14 +736,14 @@ span[data-type="counter"]:active,
   background-color: var(--Notion-tolist-hover-color);
 }
 
-.vditor-task input:checked{
-  background:no-repeat round  url("img/done_white_18dp.svg"); 
+.vditor-task input:checked {
+  background: no-repeat round url("img/done_white_18dp.svg");
   border-color: var(--Notion-tolist-done-background);
   background-color: var(--Notion-tolist-done-background);
   box-shadow: none;
 }
 
-.vditor-task input:checked:hover{
+.vditor-task input:checked:hover {
   background-color: var(--Notion-tolist-done-background-hover);
 }
 
@@ -835,15 +835,17 @@ span[data-type="a"]:hover {
 
 /* 命名、别名的样式 */
 .vditor-ir .vditor-reset *[tip]:not([fold="1"]) {
-  /* box-shadow: var(--b3-dialog-shadow); */
-  border-radius: 3px;
-  border-right: 2px solid var(--Notion-text-border-color);
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(247, 246, 243, 0.7) 100%
+  );
 }
 
 .vditor-ir .vditor-reset *[tip]:not([fold="1"])::before {
   border-radius: 3px;
   padding: 0.2em 0.4em;
-  background-color: var(--Notion-theme-surface);
 }
 
 /* 标签样式 */
