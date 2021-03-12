@@ -237,7 +237,7 @@
 /* 字数计数器 */
 .vditor-counter {
   /* font-size: 11px; */
-  margin-top: 0.2em;
+  margin-top: 0.1em;
   padding: 0.4em;
   color: var(--Notion-theme-on-surface-focus);
   background-color: var(--Notion-tab-background-hover);
@@ -245,7 +245,6 @@
 
 /* 富文本工具栏 */
 .vditor-toolbar:not(.vditor-toolbar--hide) {
-  /* background-color: var(--Notion-theme-background) !important; */
   border: none;
   /* border-bottom: 1px solid #000000;
   border-top: 1px solid #000000; */
@@ -255,28 +254,21 @@
   transition: opacity 400ms ease 0s;
   opacity: 0;
   margin: 0 2px;
-  padding: 0 5px;
-  height: 27px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 
-  /* height: 22px;
-  padding: 0px 4px; */
+  height: 25px;
+  padding: 0px 5px;
 }
-/* 
+
 .vditor-toolbar__divider{
-  margin: 4.5px 6px;
+  margin: 6px 4px;
   height: 13px;
 }
 
-.vditor-toolbar__item svg{
-  width: 11.5px;
-  height: 11.5px;
-}
-
 .vditor-toolbar__item[data-type="upload"]{
-  padding-top: 6px;
+  padding-top: 5px;
   width: 22px;
-} */
+}
 
 .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__item {
   opacity: 1;
@@ -286,7 +278,7 @@
 .layout-tab-bar .item {
   font-weight: 500;
   margin-left: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   border: none;
   border-radius: 3px;
 }
@@ -626,7 +618,7 @@ span[data-type="counter"]:active,
 .vditor-ir__menu button {
   border-radius: 3px;
   height: 25px;
-  min-width: 25px;
+  width: 22px;
 }
 
 .vditor-ir__menu button:hover {
@@ -650,17 +642,17 @@ span[data-type="counter"]:active,
   display: none;
 } */
 
-.vditor-ir__menu[style$="left:-22px"] {
-  left: -27px !important;
+/* .vditor-ir__menu[style$="left:-22px"] {
+  left: -26px !important;
 }
 
 .vditor-ir__menu[style$="left:-44px"] {
-  left: -54px !important;
+  left: -52px !important;
 }
 
 .vditor-ir__menu[style$="left:-66px"] {
-  left: -81px !important;
-}
+  left: -78px !important;
+} */
 
 .vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
   margin-top: -0.1em;
