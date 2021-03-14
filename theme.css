@@ -237,7 +237,7 @@
 /* 字数计数器 */
 .vditor-counter {
   /* font-size: 11px; */
-  margin-top: 0.1em;
+  margin-top: 0.3em;
   padding: 0.4em;
   color: var(--Notion-theme-on-surface-focus);
   background-color: var(--Notion-tab-background-hover);
@@ -253,9 +253,7 @@
 .vditor-toolbar__item {
   transition: opacity 400ms ease 0s;
   opacity: 0;
-  margin: 0 2px;
-  margin-bottom: 3px;
-
+  margin: 3px 2px;
   height: 25px;
   padding: 0px 5px;
 }
@@ -368,11 +366,7 @@
   cursor: pointer;
 }
 
-.b3-select:focus {
-  box-shadow: none;
-}
-
-.b3-button:not(.b3-button--text):not(.b3-button--white) {
+.b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline) {
   color: var(--Notion-theme-background) !important;
 }
 
@@ -441,6 +435,20 @@
   background-color: var(--Notion-scroll-color);
 } */
 
+/* 历史界面 */
+.d2h-file-name{
+  overflow: hidden;
+}
+
+.d2h-code-line-ctn{
+  font-family: var(--b3-font-family-code) !important;
+  border: none;
+}
+
+.d2h-code-side-linenumber{
+  height: inherit;
+  line-height: 28px;
+}
 /* ----------------------------------------------------------------------------------------------------------------- */
 
 /* UI按钮特效 */
@@ -467,7 +475,8 @@
 /* 侧边栏页签列表和顶栏按钮 */
 .b3-list--background .b3-list-item:hover,
 .block__icons:hover,
-.block__icons:hover .fn__flex-1 {
+.block__icons:hover .fn__flex-1,
+.b3-list-item:hover .fn__flex-1 {
   background-color: var(--Notion-list-background-hover) !important;
 }
 
@@ -477,6 +486,7 @@ span[data-type="counter"]:hover,
 .item__close:hover,
 .b3-list-item__graphic--arrow:hover,
 .block__icon:hover {
+  color: var(--Notion-theme-color) !important;
   background-color: var(--Notion-button-background-hover) !important;
 }
 
@@ -603,8 +613,8 @@ span[data-type="counter"]:active,
 
 /* 代码主题ant-design下的样式调整 */
 /* 代码块 */
-.hljs {
-  line-height: 1.8;
+.hljs:not(.md) {
+  line-height: 1.5 !important;
   border: none !important;
   border-radius: 3px !important;
   background-color: var(--Notion-theme-surface) !important;
