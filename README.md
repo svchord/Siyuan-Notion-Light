@@ -2,12 +2,15 @@
 
 ## 预览图
 
-![预览图](preview.png)
+![预览图](img/preview.png)
 
 ## 简介
 
 - 参考Notion的Light主题
 - 所做的工作
+  - 题头图
+    - 暂时用纯css配合[Cover模板](https://github.com/zqhjl/siyuan-template-NotionCover)显示题头图
+    - 考虑到部分用户不一定需要该功能，因此默认注释，需要手动去除注释
   - 整体配色更改
   - 样式更改
     - 编辑器样式（与[Atom OneDark](https://github.com/zqhjl/Siyuan-Atom-OneDark)主题大部分一致）
@@ -16,6 +19,18 @@
   - 整体字体更换
 
 ## 历史版本
+
+### 1.2.0
+
+- 通过注释删除了所有UI中的线条
+- 修改了部分动效颜色
+- 去除了滚动条的淡入淡出效果
+- 修改了aria-label浮窗样式
+- 增加了题头图样式，，但默认注释
+- 去除了代码块的背景图片
+- 修改了标签的样式
+- 将段落块的行高改为默认
+- 减小了行内元素的外边距
 
 ### 1.1.1
 
