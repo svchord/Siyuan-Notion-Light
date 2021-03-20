@@ -265,7 +265,7 @@
 }
 
 .vditor-toolbar__item[data-type="upload"] {
-  padding-top: 5px;
+  padding-top: 6px;
   width: 22px;
 }
 
@@ -380,6 +380,14 @@
   color: var(--Notion-theme-background) !important;
 }
 
+.b3-dialog__close {
+  color: var(--Notion-tab-background-focus-click);
+}
+
+.b3-dialog__close:hover {
+  color: var(--Notion-theme-background);
+}
+
 /* 滚动条 */
 /* .block__icons + .fn__flex-1 */
 ::-webkit-scrollbar-thumb {
@@ -389,6 +397,10 @@
 /* .block__icons + .fn__flex-1 */
 :hover::-webkit-scrollbar-thumb {
   background-color: var(--Notion-scroll-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(174, 172, 166) !important;
 }
 
 /* .vditor-content::after{
@@ -412,10 +424,6 @@
         z-index: -1;
     }
 } */
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(174, 172, 166) !important;
-}
 
 /* 块引用预览浮窗的样式 */
 .block__popover--open {
@@ -482,7 +490,7 @@
   right: 0;
   top: 0px;
   width: 98vw !important;
-  padding-left: 75%;
+  padding-left: 50%;
 }
 
 .vditor:not(.panelVditor) .vditor-reset > p:first-child img {
@@ -635,13 +643,13 @@ span[data-type="counter"]:active,
 
 .vditor-ir ul,
 .vditor-ir ol {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .vditor-ir ul p,
 .vditor-ir ol p {
-  margin-bottom: 0 !important;
-  line-height: 2 !important;
+  margin-bottom: 8px !important;
+  line-height: 25px !important;
 }
 
 /* 无序列表 */
@@ -720,6 +728,11 @@ span[data-type="counter"]:active,
 }
 
 /* 块标识菜单样式 */
+.vditor-ir__menu {
+  margin-left: -7px;
+  margin-top: -4.5px !important;
+}
+
 .vditor-ir__menu button {
   border-radius: 3px;
   height: 25px;
@@ -742,36 +755,9 @@ span[data-type="counter"]:active,
 .vditor-ir__menu--fold button svg {
   margin-top: 12px;
 }
-
-/* .vditor-ir__menu--hover:not(.vditor-ir__menu--counter){
-  display: none;
-} */
-
-/* .vditor-ir__menu[style$="left:-22px"] {
-  left: -26px !important;
-}
-
-.vditor-ir__menu[style$="left:-44px"] {
-  left: -52px !important;
-}
-
-.vditor-ir__menu[style$="left:-66px"] {
-  left: -78px !important;
-} */
-
+/* 
 .vditor-ir__menu[title^="标题"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
-  margin-top: -0.1em;
-}
-
-.vditor-ir__menu[title^="嵌入块"]:not([style$="left:-44px"]):not([style$="left:-66px"]),
-.vditor-ir__menu[title^="查询块"]:not([style$="left:-44px"]):not([style$="left:-66px"]),
-.vditor-ir__menu[title^="数学公式"]:not([style$="left:-44px"]):not([style$="left:-66px"]),
-.vditor-ir__menu[title^="段落"]:not([style$="left:-44px"]):not([style$="left:-66px"]) {
-  margin-top: -4px;
-}
-
-/* .vditor div[style$="left:-22px"]:not([title^="无序列表"]):not([title^="有序列表"]):not([title^="列表项"]) {
-  margin-left: -3em;
+  margin-top: 0em;
 } */
 
 /* 引用计数块的样式 */
@@ -791,29 +777,6 @@ span[data-type="counter"]:active,
 .vditor-ir__menu--memo span {
   background-color: var(--Notion-list-background-hover);
   color: var(--Notion-theme-on-surface-focus);
-}
-
-/* 计数块旁的元素调整 */
-.vditor-ir .vditor-reset > h1,
-.vditor-ir .vditor-reset > h2,
-.vditor-ir .vditor-reset > h3,
-.vditor-ir .vditor-reset > h4,
-.vditor-ir .vditor-reset > h5,
-.vditor-ir .vditor-reset > h6 {
-  margin-left: 7px;
-}
-
-.vditor-ir .vditor-reset > p,
-.vditor-ir .vditor-reset > .hlhs,
-.vditor-ir .vditor-reset > table,
-.vditor-ir .vditor-reset > ul,
-.vditor-ir .vditor-reset > ol,
-.vditor-ir .vditor-reset > .vditor-ir__node {
-  margin-left: 7px;
-}
-
-.vditor-ir .vditor-reset > blockquote {
-  margin-left: 0.55em;
 }
 
 /* 任务列表样式 */
@@ -856,6 +819,10 @@ span[data-type="counter"]:active,
 }
 
 /* 标题块 */
+.vditor-ir h1,
+.vditor-ir h2 {
+  border-bottom: 1px solid var(--Notion-list-border-color) !important;
+}
 /* 
 .vditor-ir h1 {
   font-size: 1.875em;
@@ -911,7 +878,7 @@ span[data-type="counter"]:active,
 /* 外部链接 */
 span[data-type="a"] {
   opacity: 0.7;
-  border-bottom: 0.05em solid rgba(55, 53, 47, 0.4);
+  border-bottom: 0.05em solid var(--Notion-theme-color-fade);
   transition: border-color 100ms ease-in, opacity 100ms ease-in;
 }
 
@@ -999,8 +966,8 @@ span[data-type="code"] > code {
 }
 
 /* 段落块样式 */
-.vditor-ir .vditor-reset p:not(img) {
-  /* line-height: 1.5; */
+.vditor-ir .vditor-reset > p:not(img) {
+  line-height: 25px;
   margin-bottom: 24px;
   /* text-align: justify; */
 }
@@ -1010,7 +977,7 @@ blockquote {
   color: var(--Notion-theme-color) !important;
   border-left: 3px solid var(--Notion-theme-color) !important;
   background-color: var(--b3-theme-background) !important;
-  padding: 0 0.9em !important;
+  padding: 0.15em 0.9em !important;
 }
 
 /* 五种卡片的样式调整 */
