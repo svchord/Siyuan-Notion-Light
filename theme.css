@@ -32,32 +32,35 @@
 
 :root {
   /* 主色 */
-  --b3-theme-primary: var(--Notion-theme-primary);
+  --b3-theme-primary: var(--NL-theme-primary);
   --b3-theme-primary-light: rgba(66, 133, 244, 0.54);
   --b3-theme-primary-lighter: rgba(66, 133, 244, 0.38);
-  --b3-theme-primary-lightest: rgba(46, 170, 220, 0.1);
+  --b3-theme-primary-lightest: var(--NL-theme-primary-lightest);
   --b3-theme-secondary: #f3a92f;
-  --b3-theme-background: var(--Notion-theme-background);
-  --b3-theme-surface: var(--Notion-theme-background);
+  --b3-theme-background: var(--NL-theme-background);
+  --b3-theme-surface: var(--NL-theme-background);
   --b3-theme-error: #d23f31;
-  --Notion-theme-primary: rgb(46, 170, 220);
-  --Notion-theme-surface: rgb(247, 246, 243);
-  --Notion-theme-background: #ffffff;
-  --Notion-theme-highlight: rgb(213, 238, 248);
-  --Notion-theme-selected-highlight: rgba(45, 170, 219, 0.3);
+
+  --NL-theme-primary: rgb(46, 170, 220);
+  --NL-theme-primary-lightest: rgba(46, 170, 220, 0.1);
+  --NL-theme-surface: rgb(247, 246, 243);
+  --NL-theme-background: #ffffff;
+  --NL-theme-highlight: rgb(213, 238, 248);
+  --NL-theme-selected-highlight: rgba(45, 170, 219, 0.3);
 
   /* 文字颜色 */
-  --b3-theme-on-primary: var(--Notion-theme-color);
+  --b3-theme-on-primary: var(--NL-theme-color);
   --b3-theme-on-secondary: #fff;
-  --b3-theme-on-background: var(--Notion-theme-on-backgroud);
-  --b3-theme-on-surface: var(--Notion-theme-on-surface);
+  --b3-theme-on-background: var(--NL-theme-on-backgroud);
+  --b3-theme-on-surface: var(--NL-theme-on-surface);
   --b3-theme-on-error: #fff;
-  --Notion-theme-color: rgb(55, 53, 47);
-  --Notion-theme-color-fade: rgba(55, 53, 47, 0.4);
-  --Notion-theme-on-backgroud: var(--Notion-theme-color);
-  --Notion-theme-on-surface: rgba(25, 23, 17, 0.6);
-  --Notion-theme-on-surface-focus: var(--Notion-theme-color);
-  --Notion-todolist-done-color: rgba(55, 53, 47, 0.375);
+
+  --NL-theme-color: rgb(55, 53, 47);
+  --NL-theme-color-fade: rgba(55, 53, 47, 0.4);
+  --NL-theme-on-backgroud: var(--NL-theme-color);
+  --NL-theme-on-surface: rgba(25, 23, 17, 0.6);
+  --NL-theme-on-surface-focus: var(--NL-theme-color);
+  --NL-todolist-done-color: rgba(55, 53, 47, 0.375);
 
   /* 字体 */
   --b3-font-family: -apple-system, BlinkMacSystemFont, "Noto Sans SC",
@@ -71,60 +74,64 @@
     "EmojiSymbols";
 
   /* 线条 */
-  /* --b3-border-color: var(--Notion-theme-background); */
-  --Notion-text-border-color: rgba(55, 53, 47, 0.09);
-  --Notion-table-border-color: rgba(237, 237, 236);
+  --b3-border-color: var(--NL-theme-background);
+
+  --NL-text-border-color: rgba(55, 53, 47, 0.09);
+  --NL-table-border-color: rgba(237, 237, 236);
 
   /* 滚动条 */
-  --b3-scroll-color: var(--Notion-scroll-color);
-  --Notion-scroll-color: #d3d1cb;
+  --b3-scroll-color: var(--NL-scroll-color);
+
+  --NL-scroll-color: #d3d1cb;
+  --NL-scroll-color-hover: rgb(174, 172, 166);
 
   /* 列表 */
   --b3-list-hover: rgba(0, 0, 0, 0.05);
-  --Notion-list-color: rgba(0, 0, 0, 0.5);
-  --Notion-list-border-color: rgb(228, 227, 226);
-  --Notion-tolist-hover-color: rgb(239, 239, 239);
-  --Notion-tolist-done-background: rgb(46, 170, 220);
-  --Notion-tolist-done-background-hover: rgb(46, 170, 220);
+
+  --NL-list-color: rgba(0, 0, 0, 0.5);
+  --NL-list-border-color: rgb(228, 227, 226);
+  --NL-tolist-hover-color: rgb(239, 239, 239);
+  --NL-tolist-done-background: rgb(46, 170, 220);
+  --NL-tolist-done-background-hover: rgb(46, 170, 220);
 
   /* 表格 */
-  --Notion-table-th-color: rgb(31, 35, 40);
-  --Notion-table-trn-color: rgb(40, 45, 52);
-  --Notion-table-tr2n-color: rgb(35, 40, 46);
+  --NL-table-th-color: rgb(31, 35, 40);
+  --NL-table-trn-color: rgb(40, 45, 52);
+  --NL-table-tr2n-color: rgb(35, 40, 46);
 
   /* 标签 */
-  --Notion-tag-background: rgb(221, 235, 241);
+  --NL-tag-background: rgb(221, 235, 241);
 
   /* 页签 */
-  --b3-tab-background: var(--Notion-tab-background);
-  --b3-tab-background-hover: var(--Notion-tab-background-hover);
+  --b3-tab-background: var(--NL-tab-background);
+  --b3-tab-background-hover: var(--NL-tab-background-hover);
 
-  --Notion-tab-background: var(--Notion-theme-background);
-  --Notion-tab-background-hover: rgb(239, 239, 239);
-  --Notion-tab-background-click: rgb(223, 223, 222);
-  --Notion-tab-background-focus: var(--Notion-tab-background-hover);
-  --Notion-tab-background-focus-hover: rgba(55, 53, 47, 0.16);
-  --Notion-tab-background-focus-click: rgb(203, 202, 199);
+  --NL-tab-background: var(--NL-theme-background);
+  --NL-tab-background-hover: rgb(239, 239, 239);
+  --NL-tab-background-click: rgb(223, 223, 222);
+  --NL-tab-background-focus: var(--NL-tab-background-hover);
+  --NL-tab-background-focus-hover: rgba(55, 53, 47, 0.16);
+  --NL-tab-background-focus-click: rgb(203, 202, 199);
 
-  --Notion-list-background-hover: rgba(55, 53, 47, 0.08);
-  --Notion-list-background-click: rgb(203, 202, 199);
-  --Notion-list-background-focus: var(--Notion-list-background-hover);
-  --Notion-list-background-focus-hover: rgba(55, 53, 47, 0.16);
-  --Notion-list-background-focus-click: rgb(203, 202, 199);
+  --NL-list-background-hover: rgba(55, 53, 47, 0.08);
+  --NL-list-background-click: rgb(203, 202, 199);
+  --NL-list-background-focus: var(--NL-list-background-hover);
+  --NL-list-background-focus-hover: rgba(55, 53, 47, 0.16);
+  --NL-list-background-focus-click: rgb(203, 202, 199);
 
-  --Notion-button-background-hover: rgba(55, 53, 47, 0.08);
-  --Notion-button-background-click: rgb(204, 203, 199);
-  --Notion-button-background-focus-hover: rgb(205, 204, 201);
-  --Notion-button-background-focus-click: rgb(192, 191, 188);
+  --NL-button-background-hover: rgba(55, 53, 47, 0.08);
+  --NL-button-background-click: rgb(204, 203, 199);
+  --NL-button-background-focus-hover: rgb(205, 204, 201);
+  --NL-button-background-focus-click: rgb(192, 191, 188);
 
   /* 块标菜单 */
-  --Notion-menu-color: rgb(195, 194, 192);
-  --Notion-menu-color-hover: rgb(184, 183, 181);
-  --Notion-menu-background: rgb(239, 239, 239);
+  --NL-menu-color: rgb(195, 194, 192);
+  --NL-menu-color-hover: rgb(184, 183, 181);
+  --NL-menu-background: rgb(239, 239, 239);
 
   /* 提示 */
-  --b3-tooltips-color: var(--Notion-tooltips-color);
-  --Notion-tooltips-color: rgb(15, 15, 15);
+  --b3-tooltips-color: var(--NL-tooltips-color);
+  --NL-tooltips-color: rgb(15, 15, 15);
 
   /* 卡片背景 */
   --b3-card-error-color: rgb(97, 26, 21);
@@ -136,17 +143,38 @@
   --b3-card-success-color: rgb(30, 70, 32);
   --b3-card-success-background: rgb(237, 247, 237);
 
+  --NL-switch-button: white;
+  --NL-switch-off-background: rgba(135, 131, 120, 0.3);
+  --NL-switch-open-background: rgb(46, 170, 220);
+  --NL-setting-button-hover-background: rgb(6, 156, 205);
+  --NL-setting-button-click-background: rgb(0, 141, 190);
+  --NL-text-field-background: rgba(242, 241, 238, 0.6);
+
   /* 动画效果 */
   --b3-transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
+
+  --NL-toolbar-transition: opacity 400ms ease 0s;
+  --NL-switch-button-transition: transform 200ms ease-out 0s;
+  --NL-switch-background-transition: background-color 200ms ease-out 0s;
+  --NL-search-transition: transform 200ms ease-in-out 0s,
+    opacity 200ms ease-in-out 0s;
+  --NL-task-transition: background-color 20ms ease-in 0s;
+  --Notoin-link-transition: border-color 100ms ease-in, opacity 100ms ease-in;
 
   /* 阴影 */
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  --b3-dialog-shadow: var(--Notion-dialog-shadow);
-  --Notion-dialog-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
+  --b3-dialog-shadow: var(--NL-dialog-shadow);
+
+  --NL-dialog-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
     rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
-  --Notion-img-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
+  --NL-img-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
     rgba(15, 15, 15, 0.1) 0px 3px 5px, rgba(15, 15, 15, 0.2) 4px 6px 8px;
+  --NL-button-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
+    rgba(15, 15, 15, 0.1) 0px 1px 2px;
+  --NL-test-filed-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
+  --NL-test-filed-focus-shadow: rgba(46, 170, 220, 0.7) 0px 0px 0px 1px inset,
+    rgba(46, 170, 220, 0.4) 0px 0px 0px 2px;
 
   /* diff */
   --b3-diff-add: #dfd;
@@ -187,8 +215,8 @@
   --b3-vditor-search-current-background: #a5d3fe;
 
   /* 代码片段背景 */
-  --b3-vditor-code-background: var(--Notion-vditor-code-background);
-  --Notion-vditor-code-background: var(--Notion-theme-surface);
+  --b3-vditor-code-background: var(--NL-vditor-code-background);
+  --NL-vditor-code-background: var(--NL-theme-surface);
 
   /* 即时渲染标记符颜色 */
   --b3-vditor-mark-heading-color: #660e7a;
@@ -208,18 +236,17 @@
   --b3-vditor-inline-strong-color: #202124;
   --b3-vditor-inline-em-color: #202124;
   --b3-vditor-inline-s-color: #202124;
-  --b3-vditor-inline-link-color: var(--Notion-vditor-inline-link-color);
-  --b3-vditor-inline-mark-background: var(
-    --Notion-vditor-inline-mark-background
-  );
+  --b3-vditor-inline-link-color: var(--NL-vditor-inline-link-color);
+  --b3-vditor-inline-mark-background: var(--NL-vditor-inline-mark-background);
   --b3-vditor-inline-mark-color: #202124;
   --b3-vditor-inline-tag-color: #5f6368;
-  --b3-vditor-inline-blockref-color: var(--Notion-vditor-inline-blockref-color);
-  --Notion-vditor-inline-link-color: var(--Notion-theme-color);
-  --Notion-vditor-inline-blockref-color: rgb(11, 110, 153);
-  --Notion-vditor-inline-code-color: #eb5757;
-  --Notion-vditor-inline-code-background: rgba(135, 131, 120, 0.15);
-  --Notion-vditor-inline-mark-background: rgb(250, 235, 221);
+  --b3-vditor-inline-blockref-color: var(--NL-vditor-inline-blockref-color);
+
+  --NL-vditor-inline-link-color: var(--NL-theme-color);
+  --NL-vditor-inline-blockref-color: rgb(11, 110, 153);
+  --NL-vditor-inline-code-color: #eb5757;
+  --NL-vditor-inline-code-background: rgba(135, 131, 120, 0.15);
+  --NL-vditor-inline-mark-background: rgb(250, 235, 221);
 }
 
 .language-graphviz polygon {
@@ -231,13 +258,13 @@
 .b3-tooltips__s:hover,
 .b3-tooltips__e:not(.dock__item):hover,
 .toolbar__item:not(#closeWindow):hover {
-  background-color: var(--Notion-tab-background-hover) !important;
+  background-color: var(--NL-tab-background-hover) !important;
 }
 
 .b3-tooltips__s:active,
 .b3-tooltips__e:not(.dock__item):active,
 .toolbar__item:not(#closeWindow):active {
-  background-color: var(--Notion-tab-background-click) !important;
+  background-color: var(--NL-tab-background-click) !important;
 }
 
 /* 字数计数器 */
@@ -245,8 +272,8 @@
   /* font-size: 11px; */
   margin-top: 0.3em;
   padding: 0.4em;
-  color: var(--Notion-theme-on-surface-focus);
-  background-color: var(--Notion-tab-background-hover);
+  color: var(--NL-theme-on-surface-focus);
+  background-color: var(--NL-tab-background-hover);
 }
 
 /* 富文本工具栏 */
@@ -257,7 +284,7 @@
 }
 
 .vditor-toolbar__item {
-  transition: opacity 400ms ease 0s;
+  transition: var(--NL-toolbar-transition);
   opacity: 0;
   margin: 3px 2px;
   height: 25px;
@@ -302,21 +329,21 @@
 
 /* 侧边栏顶栏 */
 .block__icons {
-  background-color: var(--Notion-theme-surface);
+  background-color: var(--NL-theme-surface);
 }
 
 /* 侧边栏 */
 .file-tree .fn__flex-1,
 .b3-list--background {
-  background-color: var(--Notion-theme-surface);
+  background-color: var(--NL-theme-surface);
 }
 
 .file-tree:not(.config-keymap) * {
-  color: var(--Notion-theme-on-surface) !important;
+  color: var(--NL-theme-on-surface) !important;
 }
 
 .ft__on-surface {
-  color: var(--Notion-theme-on-backgroud);
+  color: var(--NL-theme-on-backgroud);
 }
 
 /* 侧边栏顶栏按钮 */
@@ -381,12 +408,12 @@
 /* 顶栏弹出菜单 */
 .b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom),
 .b3-menu__item--current {
-  background-color: var(--Notion-tab-background-hover);
+  background-color: var(--NL-tab-background-hover);
 }
 
 .b3-menu__separator {
   height: 1px;
-  background-color: var(--Notion-text-border-color);
+  background-color: var(--NL-text-border-color);
 }
 
 /* 设置菜单 */
@@ -407,8 +434,8 @@
   padding: 1px;
   border-radius: 44px;
   box-sizing: content-box;
-  background: rgba(135, 131, 120, 0.3);
-  transition: background-color 200ms ease-out 0s;
+  background: var(--NL-switch-off-background);
+  transition: var(--NL-switch-background-transition);
 }
 
 .b3-switch::after {
@@ -417,9 +444,9 @@
   width: 14px;
   height: 14px;
   border-radius: 44px;
-  background: white;
-  transition: transform 200ms ease-out 0s;
+  background: var(--NL-switch-button);
   transform: translateX(5px) translateY(4px);
+  transition: var(--NL-switch-button-transition);
 }
 
 .b3-switch::before {
@@ -427,32 +454,32 @@
 }
 
 .b3-switch:checked {
-  background-color: rgb(46, 170, 220);
+  background-color: var(--NL-switch-open-background);
 }
 
 .b3-switch:checked:after {
-  background: white;
-  transition: transform 200ms ease-out 0s;
+  background: var(--NL-switch-button);
+  transition: var(--NL-switch-button-transition);
   transform: translateX(17px) translateY(4px);
 }
 
 /* 选择下拉菜单 */
 .b3-select {
-  border: 1px solid var(--Notion-tab-background-focus-hover);
+  border: 1px solid var(--NL-tab-background-focus-hover);
   padding: 2px 8px 4px 8px;
   cursor: pointer;
 }
 
 .b3-select:hover {
-  background-color: var(--Notion-list-background-hover);
+  background-color: var(--NL-list-background-hover);
 }
 
 .b3-select:active {
-  background-color: var(--Notion-list-background-focus-hover);
+  background-color: var(--NL-list-background-focus-hover);
 }
 
 .b3-select:hover option {
-  background-color: var(--Notion-theme-background);
+  background-color: var(--NL-theme-background);
 }
 
 .b3-select:focus {
@@ -461,22 +488,19 @@
 
 /* 按钮 */
 .b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel) {
-  color: var(--Notion-theme-background) !important;
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
-    rgba(15, 15, 15, 0.1) 0px 1px 2px;
+  color: var(--NL-theme-background) !important;
+  box-shadow: var(--NL-button-shadow);
 }
 
 .b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel):hover,
 .b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel):focus {
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
-    rgba(15, 15, 15, 0.1) 0px 1px 2px;
-  background-color: rgb(6, 156, 205);
+  box-shadow: var(--NL-button-shadow);
+  background-color: var(--NL-setting-button-hover-background);
 }
 
 .b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel):active {
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
-    rgba(15, 15, 15, 0.1) 0px 1px 2px;
-  background-color: rgb(0, 141, 190);
+  box-shadow: var(--NL-button-shadow);
+  background-color: var(--NL-setting-button-click-background);
 }
 
 /* 警告 */
@@ -486,39 +510,38 @@
 
 .b3-snackbar__content,
 .b3-snackbar__content a {
-  color: var(--Notion-theme-background) !important;
+  color: var(--NL-theme-background) !important;
 }
 
 /* 关闭按钮 */
 .b3-dialog__close {
-  color: var(--Notion-tab-background-focus-click);
+  color: var(--NL-tab-background-focus-click);
 }
 
 .b3-dialog__close:hover {
-  color: var(--Notion-theme-background);
+  color: var(--NL-theme-background);
 }
 
 /* 输入框（含搜索框） */
 .b3-text-filed:not(.b3-text-filed--small),
 .pcr-app .pcr-interaction .pcr-result,
 .vditor-search__item .b3-text-filed--small {
-  /* border-color: var(--Notion-tab-background-focus-hover); */
+  /* border-color: var(--NL-tab-background-focus-hover); */
   border: none;
   border-radius: 3px;
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
-  background: rgba(242, 241, 238, 0.6);
+  box-shadow: var(--NL-test-filed-shadow);
+  background: var(--NL-text-field-background);
 }
 
 .b3-text-filed:not(.b3-text-filed--small):not(.b3-form__icon-input):focus,
 .pcr-app .pcr-interaction .pcr-result:focus {
-  box-shadow: rgba(46, 170, 220, 0.7) 0px 0px 0px 1px inset,
-    rgba(46, 170, 220, 0.4) 0px 0px 0px 2px !important;
+  box-shadow: var(--NL-test-filed-focus-shadow) !important;
 }
 
 /* 外部链接打开文件夹 */
 .b3-label a {
   display: inline-flex;
-  color: var(--Notion-theme-primary);
+  color: var(--NL-theme-primary);
   border-radius: 3px;
   font-size: 14px;
   line-height: 20px;
@@ -531,9 +554,9 @@
 }
 
 .b3-label a:hover {
-  color: var(--Notion-theme-primary);
+  color: var(--NL-theme-primary);
   text-decoration: none;
-  background-color: rgba(46, 170, 220, 0.1);
+  background-color: var(--NL-theme-primary-lightest);
 }
 
 /* 滚动条 */
@@ -544,11 +567,11 @@
 
 /* .block__icons + .fn__flex-1 */
 :hover::-webkit-scrollbar-thumb {
-  background-color: var(--Notion-scroll-color);
+  background-color: var(--NL-scroll-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(174, 172, 166) !important;
+  background-color: var(--NL-scroll-color-hover) !important;
 }
 
 /* .vditor-content::after{
@@ -584,14 +607,14 @@
   top:45%;
   height: 10%;
   width: 1px;
-  background-color: var(--Notion-scroll-color);
+  background-color: var(--NL-scroll-color);
 }
 
 .layout > .fn__flex > .fn__flex-1 > .layout__resize:not(.layout__resize--lr)::after{
   left: 45%;
   width: 10%;
   height: 1px;
-  background-color: var(--Notion-scroll-color);
+  background-color: var(--NL-scroll-color);
 } */
 
 /* 历史界面 */
@@ -662,8 +685,8 @@
   right: 70px;
   top: 42px;
   border-radius: 3px;
-  box-shadow: var(--Notion-dialog-shadow);
-  transition: transform 200ms ease-in-out 0s, opacity 200ms ease-in-out 0s;
+  box-shadow: var(--NL-dialog-shadow);
+  transition: var(--NL-search-transition);
   opacity: 0;
   transform: translateY(-34px);
 }
@@ -725,7 +748,7 @@
 /* 编辑器页签和富文本工具栏按钮 */
 .vditor-toolbar__item,
 .layout-tab-bar .item {
-  color: var(--Notion-theme-color-fade);
+  color: var(--NL-theme-color-fade);
   border-radius: 3px;
 }
 
@@ -733,18 +756,18 @@
 /* 编辑器页签和富文本工具栏按钮 */
 .vditor-toolbar__item:hover,
 .layout-tab-bar .item:hover {
-  background-color: var(--Notion-tab-background-hover) !important;
+  background-color: var(--NL-tab-background-hover) !important;
 }
 
 /* 富文本工具栏按钮 */
 .vditor-toolbar__item:hover {
-  color: var(--Notion-theme-on-surface-focus) !important;
+  color: var(--NL-theme-on-surface-focus) !important;
 }
 
 /* 侧边栏页签列表和顶栏按钮 */
 .b3-list--background .b3-list-item:hover,
 .block__icons:hover {
-  background-color: var(--Notion-list-background-hover) !important;
+  background-color: var(--NL-list-background-hover) !important;
 }
 
 .block__icons:hover .fn__flex-1,
@@ -758,26 +781,26 @@ span[data-type="counter"]:hover,
 .item__close:hover,
 .b3-list-item__graphic--arrow:hover,
 .block__icon:hover {
-  color: var(--Notion-theme-color) !important;
-  background-color: var(--Notion-button-background-hover) !important;
+  color: var(--NL-theme-color) !important;
+  background-color: var(--NL-button-background-hover) !important;
 }
 
 /* 点击状态 */
 /* 编辑器页签和富文本工具栏按钮 */
 .vditor-toolbar__item:active,
 .layout-tab-bar .item:active {
-  color: var(--Notion-theme-on-surface-focus) !important;
-  background-color: var(--Notion-tab-background-click) !important;
+  color: var(--NL-theme-on-surface-focus) !important;
+  background-color: var(--NL-tab-background-click) !important;
 }
 
 /* 侧边栏页签列表 */
 .b3-list--background .b3-list-item:active {
-  background-color: var(--Notion-list-background-click) !important;
+  background-color: var(--NL-list-background-click) !important;
 }
 
 .b3-list--background .b3-list-item:active .b3-list-item__text,
 .b3-list--background .b3-list-item:active .b3-list-item__graphic {
-  color: var(--Notion-theme-on-surface-focus) !important;
+  color: var(--NL-theme-on-surface-focus) !important;
 }
 
 .b3-list-item__action:active,
@@ -786,37 +809,37 @@ span[data-type="counter"]:active,
 .b3-list-item__graphic--arrow:active,
 .block__icon:active,
 .b3-list-item__graphic--arrow:active {
-  background-color: var(--Notion-button-background-click) !important;
+  background-color: var(--NL-button-background-click) !important;
 }
 
 /* 选中状态 */
 /* 编辑器页签和富文本工具栏按钮 */
 .b3-menu__item--current,
 .layout__wnd--active .layout-tab-bar .item--focus {
-  color: var(--Notion-theme-on-surface-focus) !important;
-  background-color: var(--Notion-tab-background-focus) !important;
+  color: var(--NL-theme-on-surface-focus) !important;
+  background-color: var(--NL-tab-background-focus) !important;
 }
 
 /* 侧边栏页签列表 */
 .b3-list--background .b3-list-item--focus {
-  background-color: var(--Notion-list-background-focus) !important;
+  background-color: var(--NL-list-background-focus) !important;
 }
 
 .b3-list--background .b3-list-item--focus .b3-list-item__text,
 .b3-list--background .b3-list-item--focus .b3-list-item__graphic {
-  color: var(--Notion-theme-on-surface-focus) !important;
+  color: var(--NL-theme-on-surface-focus) !important;
 }
 
 /* 选中悬浮状态 */
 /* 编辑器页签和富文本工具栏按钮 */
 .b3-menu__item--current:hover,
 .layout__wnd--active .layout-tab-bar .item--focus:hover {
-  background-color: var(--Notion-tab-background-focus-hover) !important;
+  background-color: var(--NL-tab-background-focus-hover) !important;
 }
 
 /* 侧边栏页签列表 */
 .b3-list--background .b3-list-item--focus:hover {
-  background-color: var(--Notion-list-background-focus-hover) !important;
+  background-color: var(--NL-list-background-focus-hover) !important;
 }
 
 /* 侧边栏页签列表上的按钮 */
@@ -824,19 +847,19 @@ span[data-type="counter"]:active,
 .b3-list--background .b3-list-item--focus span[data-type="counter"]:hover,
 .layout__wnd--active .layout-tab-bar .item--focus .item__close:hover,
 .b3-list--background .b3-list-item--focus .b3-list-item__graphic--arrow:hover {
-  background-color: var(--Notion-button-background-focus-hover) !important;
+  background-color: var(--NL-button-background-focus-hover) !important;
 }
 
 /* 选中点击状态 */
 /* 编辑器页签和富文本工具栏按钮 */
 .b3-menu__item--current:active,
 .layout__wnd--active .layout-tab-bar .item--focus:active {
-  background-color: var(--Notion-tab-background-focus-click) !important;
+  background-color: var(--NL-tab-background-focus-click) !important;
 }
 
 /* 侧边栏页签列表 */
 .b3-list--background .b3-list-item--focus:active {
-  background-color: var(--Notion-list-background-focus-click) !important;
+  background-color: var(--NL-list-background-focus-click) !important;
 }
 
 /* 侧边栏页签列表上的按钮 */
@@ -844,7 +867,7 @@ span[data-type="counter"]:active,
 .b3-list--background .b3-list-item--focus span[data-type="counter"]:active,
 .layout__wnd--active .layout-tab-bar .item--focus .item__close:active,
 .b3-list--background .b3-list-item--focus .b3-list-item__graphic--arrow:active {
-  background-color: var(--Notion-button-background-focus-click) !important;
+  background-color: var(--NL-button-background-focus-click) !important;
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -870,7 +893,7 @@ span[data-type="counter"]:active,
 /* 无序列表 */
 .vditor-ir ul ol,
 .vditor-ir ul ul {
-  border-left: 1px solid var(--Notion-list-border-color);
+  border-left: 1px solid var(--NL-list-border-color);
   margin-left: -0.9em !important;
   padding-left: 2.8em !important; /* 父子结点之间的距离 */
 }
@@ -878,7 +901,7 @@ span[data-type="counter"]:active,
 /* 有序列表 */
 .vditor-ir ol ol,
 .vditor-ir ol ul {
-  border-left: 1px solid var(--Notion-list-border-color);
+  border-left: 1px solid var(--NL-list-border-color);
   margin-left: -0.7em !important;
   padding-left: 2.8em !important; /* 父子结点之间的距离 */
 }
@@ -890,7 +913,7 @@ span[data-type="counter"]:active,
   border: none !important;
   border-radius: 3px !important;
   background-image: none !important;
-  background-color: var(--Notion-theme-surface) !important;
+  background-color: var(--NL-theme-surface) !important;
 }
 
 /* 代码块中注释去除斜体样式 */
@@ -905,7 +928,7 @@ span[data-type="counter"]:active,
 /* 代码编辑区 */
 .vditor-ir__marker--pre code {
   color: var(--b3-theme-on-background);
-  background-color: var(--Notion-theme-surface) !important;
+  background-color: var(--NL-theme-surface) !important;
 }
 
 /* 代码编辑区显示时不显示预览 */
@@ -915,21 +938,21 @@ span[data-type="counter"]:active,
 
 /* 表格 */
 .vditor-ir table tr {
-  border-top: 2px solid var(--Notion-table-border-color);
+  border-top: 2px solid var(--NL-table-border-color);
 }
 
 .vditor-ir table tr:last-child {
-  border-bottom: 2px solid var(--Notion-table-border-color);
+  border-bottom: 2px solid var(--NL-table-border-color);
 }
 
 .vditor-ir table tr th {
-  border-left: 2px solid var(--Notion-table-border-color);
-  border-right: 2px solid var(--Notion-table-border-color);
+  border-left: 2px solid var(--NL-table-border-color);
+  border-right: 2px solid var(--NL-table-border-color);
 }
 
 .vditor-ir table tr td {
-  border-left: 2px solid var(--Notion-table-border-color);
-  border-right: 2px solid var(--Notion-table-border-color);
+  border-left: 2px solid var(--NL-table-border-color);
+  border-right: 2px solid var(--NL-table-border-color);
 }
 
 .vditor-ir table tr th:first-child,
@@ -955,16 +978,16 @@ span[data-type="counter"]:active,
 }
 
 .vditor-ir__menu button:hover {
-  background-color: var(--Notion-menu-background);
+  background-color: var(--NL-menu-background);
 }
 
 .vditor-ir__menu button:hover svg {
-  color: var(--Notion-menu-color-hover);
+  color: var(--NL-menu-color-hover);
 }
 
 .vditor-ir__menu button svg {
   margin-top: 4.5px;
-  color: var(--Notion-menu-color);
+  color: var(--NL-menu-color);
 }
 
 .vditor-ir__menu--fold button svg {
@@ -982,50 +1005,50 @@ span[data-type="counter"]:active,
   border-radius: 4px;
   height: 16px;
   min-width: 16px;
-  background-color: var(--Notion-menu-background);
-  color: var(--Notion-menu-color-hover);
+  background-color: var(--NL-menu-background);
+  color: var(--NL-menu-color-hover);
   font-size: 12px;
   line-height: 16px;
 }
 
 /* 备注时引用计数块的样式 */
 .vditor-ir__menu--memo span {
-  background-color: var(--Notion-list-background-hover);
-  color: var(--Notion-theme-on-surface-focus);
+  background-color: var(--NL-list-background-hover);
+  color: var(--NL-theme-on-surface-focus);
 }
 
 /* 任务列表样式 */
 .vditor-task input {
   -webkit-appearance: none !important;
   user-select: none;
-  transition: background-color 20ms ease-in 0s;
+  transition: var(--NL-task-transition);
   width: 16px;
   height: 16px;
   cursor: pointer;
-  border: 1px solid var(--Notion-theme-color);
+  border: 2px solid var(--NL-theme-color);
+  /* outline: 1px outset rgb(55, 53, 47); */
   border-radius: 0 !important;
-  box-shadow: 0 0 2px #000000 inset, 0 0 1px #000000;
 }
 
 .vditor-task input:hover {
-  background-color: var(--Notion-tolist-hover-color);
+  background-color: var(--NL-tolist-hover-color);
 }
 
 .vditor-task input:checked {
+  border: none;
   background: no-repeat round url("img/done_white_18dp.svg");
-  border-color: var(--Notion-tolist-done-background);
-  background-color: var(--Notion-tolist-done-background);
-  box-shadow: none;
+  background-color: var(--NL-tolist-done-background);
+  /* outline: none; */
 }
 
 .vditor-task input:checked:hover {
-  background-color: var(--Notion-tolist-done-background-hover);
+  background-color: var(--NL-tolist-done-background-hover);
 }
 
 /* 任务列表选中后的文本样式 */
 .vditor-task--done p {
   text-decoration: line-through;
-  color: var(--Notion-todolist-done-color);
+  color: var(--NL-todolist-done-color);
 }
 
 /* 任务列表与文字的距离 */
@@ -1036,7 +1059,7 @@ span[data-type="counter"]:active,
 /* 标题块 */
 .vditor-ir h1,
 .vditor-ir h2 {
-  border-bottom: 1px solid var(--Notion-list-border-color) !important;
+  border-bottom: 1px solid var(--NL-list-border-color) !important;
 }
 /* 
 .vditor-ir h1 {
@@ -1093,8 +1116,8 @@ span[data-type="counter"]:active,
 /* 外部链接 */
 span[data-type="a"] {
   opacity: 0.7;
-  border-bottom: 0.05em solid var(--Notion-theme-color-fade);
-  transition: border-color 100ms ease-in, opacity 100ms ease-in;
+  border-bottom: 0.05em solid var(--NL-theme-color-fade);
+  transition: var(--Notoin-link-transition);
 }
 
 span[data-type="a"] .vditor-ir__link {
@@ -1104,11 +1127,11 @@ span[data-type="a"] .vditor-ir__link {
 
 span[data-type="a"] *:not(.vditor-ir__link) {
   font-size: 85%;
-  color: var(--Notion-theme-color) !important;
+  color: var(--NL-theme-color) !important;
 }
 
 span[data-type="a"]:hover {
-  border-color: var(--Notion-theme-color) !important;
+  border-color: var(--NL-theme-color) !important;
   opacity: 1 !important;
 }
 
@@ -1139,8 +1162,8 @@ span[data-type="a"]:hover {
   white-space: pre-wrap;
   background-size: 20px 20px;
   font-family: var(--b3-font-family-code);
-  color: var(--Notion-theme-color);
-  background-color: var(--Notion-tag-background);
+  color: var(--NL-theme-color);
+  background-color: var(--NL-tag-background);
   text-decoration: none;
 }
 
@@ -1150,8 +1173,8 @@ span[data-type="code"] {
   font-weight: normal;
 }
 span[data-type="code"] > code {
-  color: var(--Notion-vditor-inline-code-color) !important;
-  background-color: var(--Notion-vditor-inline-code-background) !important;
+  color: var(--NL-vditor-inline-code-color) !important;
+  background-color: var(--NL-vditor-inline-code-background) !important;
 }
 
 /* 块引用样式 */
@@ -1162,7 +1185,7 @@ span[data-type="code"] > code {
 
 .vditor-ir__blockref:hover {
   /* text-decoration: underline; */
-  border-bottom: 1px solid var(--Notion-vditor-inline-blockref-color);
+  border-bottom: 1px solid var(--NL-vditor-inline-blockref-color);
 }
 
 .vditor-ir__marker {
@@ -1189,8 +1212,8 @@ span[data-type="code"] > code {
 
 /* 引用块 */
 blockquote {
-  color: var(--Notion-theme-color) !important;
-  border-left: 3px solid var(--Notion-theme-color) !important;
+  color: var(--NL-theme-color) !important;
+  border-left: 3px solid var(--NL-theme-color) !important;
   background-color: var(--b3-theme-background) !important;
   padding: 0.15em 0.9em !important;
 }
@@ -1211,7 +1234,7 @@ span[data-type="img"] img,
 }
 
 span[data-type="img"] img {
-  box-shadow: var(--Notion-img-shadow);
+  box-shadow: var(--NL-img-shadow);
 }
 
 /* 多种行内元素的样式调整 */
@@ -1232,13 +1255,13 @@ span[data-type="inline-math"]
   > div[data-render]
   > .fn__flex-column:not(:last-child)
   > .fn__flex-1 {
-  border-bottom: 1px solid var(--Notion-text-border-color) !important;
+  border-bottom: 1px solid var(--NL-text-border-color) !important;
 }
 
 /* 分割线样式 */
 .vditor-reset hr {
   /* height: 1px; */
-  background-color: var(--Notion-text-border-color);
+  background-color: var(--NL-text-border-color);
 }
 
 /* 折叠块样式 */
@@ -1248,24 +1271,24 @@ span[data-type="inline-math"]
 
 /* 高亮 */
 .vditor-ir__hl {
-  background-color: var(--Notion-theme-highlight) !important;
+  background-color: var(--NL-theme-highlight) !important;
 }
 
 /* webkit, opera, IE9 */
 ::selection {
-  background: var(--Notion-theme-selected-highlight);
+  background: var(--NL-theme-selected-highlight);
 }
 /* mozilla firefox */
 ::-moz-selection {
-  background: var(--Notion-theme-selected-highlight);
+  background: var(--NL-theme-selected-highlight);
 }
 
 /* 键盘符 */
 kbd {
-  background-color: var(--Notion-vditor-inline-code-background) !important;
+  background-color: var(--NL-vditor-inline-code-background) !important;
 }
 
 /* mermaid */
 .edgeLabel * {
-  background-color: var(--Notion-theme-background) !important;
+  background-color: var(--NL-theme-background) !important;
 }
