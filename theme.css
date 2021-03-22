@@ -159,7 +159,8 @@
   --NL-search-transition: transform 200ms ease-in-out 0s,
     opacity 200ms ease-in-out 0s;
   --NL-task-transition: background-color 20ms ease-in 0s;
-  --Notoin-link-transition: border-color 100ms ease-in, opacity 100ms ease-in;
+  --NL-link-transition: border-color 100ms ease-in, opacity 100ms ease-in;
+  --NL-setting-link-transition: background-color 20ms ease-in 0s;
 
   /* 阴影 */
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -320,11 +321,14 @@
 
 .item--unupdate::before {
   content: "";
-  display: inline-block;
   height: 14px;
   width: 14px;
   margin-right: 8px;
   background: no-repeat round url("img/done_black_18dp.svg");
+}
+
+.item--unupdate .item__graphic {
+  display: none;
 }
 
 /* 侧边栏顶栏 */
@@ -368,6 +372,7 @@
 /* 折叠展开 */
 .b3-list-item__graphic--arrow {
   padding: 4px;
+  margin-left: -5px;
   margin-right: 5px;
   border-radius: 3px;
 }
@@ -542,15 +547,19 @@
 .b3-label a {
   display: inline-flex;
   color: var(--NL-theme-primary);
+  user-select: none;
+  transition: var(--NL-setting-link-transition);
+  cursor: pointer;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  height: 28px;
   border-radius: 3px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 1.2;
   min-width: 0px;
-  padding: 4px 8px;
-  align-items: center;
-  justify-content: center;
+  padding-left: 8px;
   padding-right: 8px;
-  /* margin-left: 5px; */
 }
 
 .b3-label a:hover {
@@ -624,7 +633,7 @@
 
 .d2h-code-line-ctn {
   font-family: var(--b3-font-family-code) !important;
-  border: none;
+  border: none !important;
 }
 
 .d2h-code-side-linenumber {
@@ -699,24 +708,21 @@
 }
 
 .vditor-search--open {
-  height: 34px;
+  height: 36px;
 }
 
 .vditor-search--open2 {
-  height: 68px;
+  height: 66px;
 }
 
 .vditor-search__item {
-  margin: 5px 9px 5px 9px;
+  margin: 6px 9px 0px 9px;
 }
 
 .vditor-search__text,
 .vditor-search__item .b3-text-filed--small,
 .vditor-search__item .b3-button--small {
   height: 24px;
-}
-
-.vditor-search__text {
   line-height: 24px;
 }
 
@@ -914,6 +920,10 @@ span[data-type="counter"]:active,
   border-radius: 3px !important;
   background-image: none !important;
   background-color: var(--NL-theme-surface) !important;
+}
+
+.vditor-reset code:not(.hljs) {
+  background-image: none;
 }
 
 /* 代码块中注释去除斜体样式 */
@@ -1117,7 +1127,7 @@ span[data-type="counter"]:active,
 span[data-type="a"] {
   opacity: 0.7;
   border-bottom: 0.05em solid var(--NL-theme-color-fade);
-  transition: var(--Notoin-link-transition);
+  transition: var(--NL-link-transition);
 }
 
 span[data-type="a"] .vditor-ir__link {
@@ -1172,7 +1182,9 @@ span[data-type="code"] {
   font-style: normal;
   font-weight: normal;
 }
-span[data-type="code"] > code {
+
+span[data-type="code"] code,
+.b3-label__text code {
   color: var(--NL-vditor-inline-code-color) !important;
   background-color: var(--NL-vditor-inline-code-background) !important;
 }
