@@ -35,7 +35,7 @@
   --b3-theme-primary: var(--Notion-theme-primary);
   --b3-theme-primary-light: rgba(66, 133, 244, 0.54);
   --b3-theme-primary-lighter: rgba(66, 133, 244, 0.38);
-  --b3-theme-primary-lightest: rgba(66, 133, 244, 0.12);
+  --b3-theme-primary-lightest: rgba(46, 170, 220, 0.1);
   --b3-theme-secondary: #f3a92f;
   --b3-theme-background: var(--Notion-theme-background);
   --b3-theme-surface: var(--Notion-theme-background);
@@ -101,7 +101,7 @@
 
   --Notion-tab-background: var(--Notion-theme-background);
   --Notion-tab-background-hover: rgb(239, 239, 239);
-  --Notion-tab-background-click: rgb(203, 202, 199);
+  --Notion-tab-background-click: rgb(223, 223, 222);
   --Notion-tab-background-focus: var(--Notion-tab-background-hover);
   --Notion-tab-background-focus-hover: rgba(55, 53, 47, 0.16);
   --Notion-tab-background-focus-click: rgb(203, 202, 199);
@@ -227,11 +227,16 @@
 }
 
 /* UI样式 */
-/* 右上角按钮 */
-.toolbar__item--action:hover {
+/* 顶栏按钮 */
+.b3-tooltips__s:hover,
+.b3-tooltips__e:not(.dock__item):hover,
+.toolbar__item:not(#closeWindow):hover {
   background-color: var(--Notion-tab-background-hover) !important;
 }
-.toolbar__item--action:active {
+
+.b3-tooltips__s:active,
+.b3-tooltips__e:not(.dock__item):active,
+.toolbar__item:not(#closeWindow):active {
   background-color: var(--Notion-tab-background-click) !important;
 }
 
@@ -282,6 +287,19 @@
   border-radius: 3px;
 }
 
+.item--unupdate {
+  font-style: normal !important;
+}
+
+.item--unupdate::before {
+  content: "";
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  margin-right: 8px;
+  background: no-repeat round url("img/done_black_18dp.svg");
+}
+
 /* 侧边栏顶栏 */
 .block__icons {
   background-color: var(--Notion-theme-surface);
@@ -330,6 +348,30 @@
   padding: 4px 0;
 }
 
+/* 侧边栏上的搜索框 */
+.b3-form__icon--small {
+  top: -1px;
+}
+
+.b3-form__icon--small .b3-form__icon-icon {
+  top: 6px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+}
+
+.b3-text-filed--small,
+.b3-text-filed--small:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.b3-form__icon--small .b3-form__icon-input {
+  padding-left: 20px !important;
+  border-radius: 3px;
+  line-height: 20px;
+}
+
 /* 菜单样式 */
 .b3-menu {
   border-radius: 3px;
@@ -348,6 +390,7 @@
 }
 
 /* 设置菜单 */
+/* 设置窗口 */
 .b3-dialog__container {
   animation: showView 0.35s ease-in-out;
 }
@@ -357,20 +400,86 @@
   font-weight: 500;
 }
 
+/* 开关 */
 .b3-switch {
-  background-color: rgb(219, 218, 214);
+  height: 14px;
+  width: 26px;
+  padding: 1px;
+  border-radius: 44px;
+  box-sizing: content-box;
+  background: rgba(135, 131, 120, 0.3);
+  transition: background-color 200ms ease-out 0s;
 }
 
+.b3-switch::after {
+  border: none;
+  box-shadow: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 44px;
+  background: white;
+  transition: transform 200ms ease-out 0s;
+  transform: translateX(5px) translateY(4px);
+}
+
+.b3-switch::before {
+  display: none !important;
+}
+
+.b3-switch:checked {
+  background-color: rgb(46, 170, 220);
+}
+
+.b3-switch:checked:after {
+  background: white;
+  transition: transform 200ms ease-out 0s;
+  transform: translateX(17px) translateY(4px);
+}
+
+/* 选择下拉菜单 */
 .b3-select {
-  border: 1px solid rgba(55, 53, 47, 0.16);
+  border: 1px solid var(--Notion-tab-background-focus-hover);
   padding: 2px 8px 4px 8px;
   cursor: pointer;
 }
 
-.b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel) {
-  color: var(--Notion-theme-background) !important;
+.b3-select:hover {
+  background-color: var(--Notion-list-background-hover);
 }
 
+.b3-select:active {
+  background-color: var(--Notion-list-background-focus-hover);
+}
+
+.b3-select:hover option {
+  background-color: var(--Notion-theme-background);
+}
+
+.b3-select:focus {
+  box-shadow: none;
+}
+
+/* 按钮 */
+.b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel) {
+  color: var(--Notion-theme-background) !important;
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
+    rgba(15, 15, 15, 0.1) 0px 1px 2px;
+}
+
+.b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel):hover,
+.b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel):focus {
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
+    rgba(15, 15, 15, 0.1) 0px 1px 2px;
+  background-color: rgb(6, 156, 205);
+}
+
+.b3-button:not(.b3-button--text):not(.b3-button--white):not(.b3-button--outline):not(.b3-button--cancel):active {
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
+    rgba(15, 15, 15, 0.1) 0px 1px 2px;
+  background-color: rgb(0, 141, 190);
+}
+
+/* 警告 */
 .b3-snackbar__content {
   line-height: 28px;
 }
@@ -380,12 +489,51 @@
   color: var(--Notion-theme-background) !important;
 }
 
+/* 关闭按钮 */
 .b3-dialog__close {
   color: var(--Notion-tab-background-focus-click);
 }
 
 .b3-dialog__close:hover {
   color: var(--Notion-theme-background);
+}
+
+/* 输入框（含搜索框） */
+.b3-text-filed:not(.b3-text-filed--small),
+.pcr-app .pcr-interaction .pcr-result,
+.vditor-search__item .b3-text-filed--small {
+  /* border-color: var(--Notion-tab-background-focus-hover); */
+  border: none;
+  border-radius: 3px;
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
+  background: rgba(242, 241, 238, 0.6);
+}
+
+.b3-text-filed:not(.b3-text-filed--small):not(.b3-form__icon-input):focus,
+.pcr-app .pcr-interaction .pcr-result:focus {
+  box-shadow: rgba(46, 170, 220, 0.7) 0px 0px 0px 1px inset,
+    rgba(46, 170, 220, 0.4) 0px 0px 0px 2px !important;
+}
+
+/* 外部链接打开文件夹 */
+.b3-label a {
+  display: inline-flex;
+  color: var(--Notion-theme-primary);
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 20px;
+  min-width: 0px;
+  padding: 4px 8px;
+  align-items: center;
+  justify-content: center;
+  padding-right: 8px;
+  /* margin-left: 5px; */
+}
+
+.b3-label a:hover {
+  color: var(--Notion-theme-primary);
+  text-decoration: none;
+  background-color: rgba(46, 170, 220, 0.1);
 }
 
 /* 滚动条 */
@@ -462,7 +610,7 @@
 }
 
 /* aria-label浮窗 */
-.b3-tooltips::after {
+.b3-tooltips:after {
   z-index: 999 !important;
   font-family: var(--b3-font-family) !important;
 }
@@ -471,17 +619,21 @@
   border-color: transparent !important;
 }
 
+.vditor-search svg:hover {
+  color: inherit !important;
+}
+
 /* 题头图样式 */
-/* .vditor-ir{
+/* .vditor-ir {
   overflow-x: hidden;
 }
 
 .vditor-ir__gutter {
-  top: 220px;
+  top: 27.5vh;
 }
 
 .vditor:not(.panelVditor) .vditor-reset {
-  margin-top: 220px !important;
+  margin-top: 27.5vh !important;
 }
 
 .vditor:not(.panelVditor) .vditor-reset > p:first-child {
@@ -498,11 +650,74 @@
   height: 28.5vh;
   width: 98vw;
   object-fit: cover;
-  top: -260px;
+  top: -32vh;
   left: 0px;
   right: 0px;
   box-shadow: none;
 } */
+
+/* 编辑器的搜索框 */
+.vditor-search {
+  position: absolute;
+  right: 70px;
+  top: 42px;
+  border-radius: 3px;
+  box-shadow: var(--Notion-dialog-shadow);
+  transition: transform 200ms ease-in-out 0s, opacity 200ms ease-in-out 0s;
+  opacity: 0;
+  transform: translateY(-34px);
+}
+
+.vditor-search--open,
+.vditor-search--open2 {
+  z-index: 999;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.vditor-search--open {
+  height: 34px;
+}
+
+.vditor-search--open2 {
+  height: 68px;
+}
+
+.vditor-search__item {
+  margin: 5px 9px 5px 9px;
+}
+
+.vditor-search__text,
+.vditor-search__item .b3-text-filed--small,
+.vditor-search__item .b3-button--small {
+  height: 24px;
+}
+
+.vditor-search__text {
+  line-height: 24px;
+}
+
+.b3-tooltips__e:not(.dock__item) {
+  border-radius: 3px;
+  height: 24px;
+}
+
+.b3-tooltips__e:not(.dock__item)::after {
+  display: none !important;
+}
+
+.b3-tooltips__e:not(.dock__item) svg {
+  padding: 7px 8px;
+}
+
+.vditor-search__item .b3-button--small {
+  padding: 0px 8px;
+}
+
+.b3-slider {
+  transform: translateY(-2px);
+}
+
 /* ----------------------------------------------------------------------------------------------------------------- */
 
 /* UI按钮特效 */
