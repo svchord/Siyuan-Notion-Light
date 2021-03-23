@@ -1,4 +1,4 @@
-# Siyuan-theme-notion
+# Siyuan-Notion-Light
 
 ## 预览图
 
