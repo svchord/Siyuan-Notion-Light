@@ -661,31 +661,47 @@
 }
 
 .vditor-ir__gutter {
-  top: 27.5vh;
+  top: 27.2vh;
 }
 
 .vditor:not(.panelVditor) .vditor-reset {
-  margin-top: 27.5vh !important;
+  margin-top: 27.2vh !important;
 }
 
-.vditor:not(.panelVditor) .vditor-reset > p:first-child {
-  position: relative;
-  left: -26vw;
-  right: 0;
-  top: 0px;
-  width: 98vw !important;
-  padding-left: 50%;
+.vditor:not(.panelVditor) .vditor-reset > p:first-child,
+.vditor:not(.panelVditor)
+  .vditor-reset
+  > p:first-child
+  div[data-type="html-block"] {
+  margin-bottom: 0;
 }
 
-.vditor:not(.panelVditor) .vditor-reset > p:first-child img {
-  position: absolute;
+.vditor:not(.panelVditor)
+  .vditor-reset
+  > p:first-child
+  .vditor-ir__node--expand
+  .vditor-ir__preview {
+  margin-top: -30.5px;
+}
+
+.vditor:not(.panelVditor)
+  .vditor-reset
+  > p:first-child
+  div[data-type="html-block"]
+  .vditor-ir__preview {
+  transform: translateX(-23.5vw) translateY(-33vh);
+  height: 0px;
+}
+
+.vditor:not(.panelVditor)
+  .vditor-reset
+  > p:first-child
+  div[data-type="html-block"]
+  iframe {
   height: 28.5vh;
-  width: 98vw;
+  min-height: 10vh;
+  width: 100vw;
   object-fit: cover;
-  top: -32vh;
-  left: 0px;
-  right: 0px;
-  box-shadow: none;
 } */
 
 /* 编辑器的搜索框 */
@@ -942,7 +958,8 @@ span[data-type="counter"]:active,
 }
 
 /* 代码编辑区显示时不显示预览 */
-.vditor-ir__node--expand:not([data-type="inline-math"]) .vditor-ir__preview {
+.vditor-ir__node--expand:not([data-type="inline-math"]):not([data-type="html-block"])
+  .vditor-ir__preview {
   display: none;
 }
 
