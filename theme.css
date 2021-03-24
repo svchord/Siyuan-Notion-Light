@@ -36,15 +36,16 @@
   --b3-theme-primary-light: rgba(66, 133, 244, 0.54);
   --b3-theme-primary-lighter: rgba(66, 133, 244, 0.38);
   --b3-theme-primary-lightest: var(--NL-theme-primary-lightest);
-  --b3-theme-secondary: #f3a92f;
+  --b3-theme-secondary: var(--NL-theme-secondary);
   --b3-theme-background: var(--NL-theme-background);
   --b3-theme-surface: var(--NL-theme-background);
   --b3-theme-error: #d23f31;
 
   --NL-theme-primary: rgb(46, 170, 220);
   --NL-theme-primary-lightest: rgba(46, 170, 220, 0.1);
-  --NL-theme-surface: rgb(247, 246, 243);
+  --NL-theme-secondary: #dd4a68;
   --NL-theme-background: #ffffff;
+  --NL-theme-surface: rgb(247, 246, 243);
   --NL-theme-highlight: rgb(213, 238, 248);
   --NL-theme-selected-highlight: rgba(45, 170, 219, 0.3);
 
@@ -255,19 +256,6 @@
 }
 
 /* UI样式 */
-/* 顶栏按钮 */
-.b3-tooltips__s:hover,
-.b3-tooltips__e:not(.dock__item):hover,
-.toolbar__item:not(#closeWindow):hover {
-  background-color: var(--NL-tab-background-hover) !important;
-}
-
-.b3-tooltips__s:active,
-.b3-tooltips__e:not(.dock__item):active,
-.toolbar__item:not(#closeWindow):active {
-  background-color: var(--NL-tab-background-click) !important;
-}
-
 /* 字数计数器 */
 .vditor-counter {
   /* font-size: 11px; */
@@ -330,57 +318,29 @@
 .item--unupdate .item__graphic {
   display: none;
 }
-
+/* 侧边栏 */
 /* 侧边栏顶栏 */
 .block__icons {
   background-color: var(--NL-theme-surface);
 }
 
-/* 侧边栏 */
-.file-tree .fn__flex-1,
-.b3-list--background {
-  background-color: var(--NL-theme-surface);
+.block__icons .fn__flex-1,
+.b3-list-item .fn__flex-1 {
+  background-color: transparent !important;
 }
 
-.file-tree:not(.config-keymap) * {
-  color: var(--NL-theme-on-surface) !important;
+.block__logo{
+  padding-bottom: 2px;
 }
-
-.ft__on-surface {
-  color: var(--NL-theme-on-backgroud);
-}
-
-/* 侧边栏顶栏按钮 */
-.block__icon {
-  height: 22px;
-  border-radius: 3px;
-}
-.block__icon svg {
-  padding: 4px;
-}
-/* 侧边栏顶栏的统计块 */
-.listCount {
-  margin-left: 0;
-}
-
-/* 侧边栏页签列表上的按钮 */
-/* ... */
-.b3-list-item__action {
-  padding: 3px 1px;
-  border-radius: 3px;
-}
-/* 折叠展开 */
-.b3-list-item__graphic--arrow {
-  padding: 4px;
-  margin-left: -5px;
-  margin-right: 5px;
-  border-radius: 3px;
-}
-.b3-list-item__graphic--arrow-open {
-  padding: 4px 0;
+.block__logo svg{
+  padding-bottom: 6px;
 }
 
 /* 侧边栏上的搜索框 */
+.search__label:focus-within{
+  color: var(--NL-theme-color);
+}
+
 .b3-form__icon--small {
   top: -1px;
 }
@@ -399,9 +359,59 @@
 }
 
 .b3-form__icon--small .b3-form__icon-input {
-  padding-left: 20px !important;
+  padding-left: 21px !important;
   border-radius: 3px;
-  line-height: 20px;
+  line-height: 21px;
+}
+
+/* 侧边栏顶栏按钮 */
+.block__icon {
+  height: 22px;
+  border-radius: 3px;
+}
+.block__icon svg {
+  padding: 4px;
+}
+/* 侧边栏顶栏的统计块 */
+.listCount {
+  margin-left: 0;
+}
+
+/* 侧边栏列表 */
+.file-tree .fn__flex-1,
+.b3-list--background {
+  background-color: var(--NL-theme-surface);
+}
+
+*:not(.config-keymap)
+  > .b3-list--background:not(.b3-tab-bar):not(.config-assets)
+  * {
+  color: var(--NL-theme-on-surface);
+}
+
+.ft__on-surface {
+  color: var(--NL-theme-on-backgroud);
+}
+
+.ft__secondary * {
+  color: var(--b3-theme-secondary) !important;
+}
+
+/* 侧边栏页签列表上的按钮 */
+/* ... */
+.b3-list-item__action {
+  padding: 3px 1px;
+  border-radius: 3px;
+}
+/* 折叠展开 */
+.b3-list-item__graphic--arrow {
+  padding: 4px;
+  margin-left: -5px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+.b3-list-item__graphic--arrow-open {
+  padding: 4px 0;
 }
 
 /* 菜单样式 */
@@ -427,9 +437,22 @@
   animation: showView 0.35s ease-in-out;
 }
 
+.b3-dialog__container *{
+  user-select: none;
+}
+
 .b3-list--background,
 .b3-tab-container * {
   font-weight: 500;
+}
+
+.b3-tab-container code {
+  font-weight: normal !important;
+}
+
+/* 搜索框 */
+.b3-form__icon-icon{
+  top: 6px;
 }
 
 /* 开关 */
@@ -483,12 +506,12 @@
   background-color: var(--NL-list-background-focus-hover);
 }
 
-.b3-select:hover option {
-  background-color: var(--NL-theme-background);
-}
-
 .b3-select:focus {
   box-shadow: none;
+}
+
+.b3-select:focus option{
+  background-color: var(--NL-theme-background);
 }
 
 /* 按钮 */
@@ -611,6 +634,20 @@
   animation: showBlock 0.3s ease-in-out;
 }
 
+.ft__primary {
+  color: var(--NL-theme-color) !important;
+}
+
+span[data-type="pin"]:not([aria-label="取消钉住"]) svg {
+  transform: rotate(45deg) translateY(1px);
+  transition: transform 200ms ease-in-out;
+}
+
+span[data-type="pin"]:not([aria-label="钉住"]) svg {
+  transform: rotate(0deg) translateY(1px);
+  transition: transform 200ms ease-in-out;
+}
+
 /* 分栏中间的分隔线 */
 /* .layout > .fn__flex > .fn__flex-1 > .layout__resize--lr::after{
   top:45%;
@@ -661,53 +698,11 @@
 }
 
 .vditor-ir__gutter {
-  top: 27.2vh;
+  top: 27.3vh;
 }
 
 .vditor:not(.panelVditor) > .vditor-content > .vditor-ir > .vditor-reset {
-  margin-top: 27.2vh !important;
-}
-
-.vditor:not(.panelVditor)
-  > .vditor-content
-  > .vditor-ir
-  > .vditor-reset
-  > div[data-type="html-block"]:first-child {
-  margin-bottom: 0;
-}
-
-.vditor:not(.panelVditor)
-  > .vditor-content
-  > .vditor-ir
-  > .vditor-reset
-  > p:first-child
-  .vditor-ir__node--expand
-  .vditor-ir__preview {
-  margin-top: -30.5px;
-}
-
-.vditor:not(.panelVditor)
-  > .vditor-content
-  > .vditor-ir
-  > .vditor-reset
-  > p:first-child
-  div[data-type="html-block"]
-  .vditor-ir__preview {
-  transform: translateX(-23.5vw) translateY(-33vh);
-  height: 0px;
-}
-
-.vditor:not(.panelVditor)
-  > .vditor-content
-  > .vditor-ir
-  > .vditor-reset
-  > p:first-child
-  div[data-type="html-block"]
-  iframe {
-  height: 28.5vh;
-  min-height: 10vh;
-  width: 100vw;
-  object-fit: cover;
+  margin-top: 27.3vh !important;
 }
 
 .vditor:not(.panelVditor)
@@ -716,7 +711,7 @@
   > .vditor-reset
   > .vditor-ir__node--expand:first-child
   .vditor-ir__preview {
-  margin-top: -22px;
+  margin-top: -24px;
 }
 
 .vditor:not(.panelVditor)
@@ -812,6 +807,10 @@
 }
 
 /* 悬浮状态 */
+/* 顶栏按钮 */
+.b3-tooltips__s:hover,
+.b3-tooltips__e:not(.dock__item):hover,
+.toolbar__item:not(#closeWindow):hover,
 /* 编辑器页签和富文本工具栏按钮 */
 .vditor-toolbar__item:hover,
 .layout-tab-bar .item:hover {
@@ -829,22 +828,24 @@
   background-color: var(--NL-list-background-hover) !important;
 }
 
-.block__icons:hover .fn__flex-1,
-.b3-list-item:hover .fn__flex-1 {
-  background-color: transparent !important;
-}
-
 /* 侧边栏页签列表上的按钮 */
-.b3-list-item__action:hover,
-span[data-type="counter"]:hover,
 .item__close:hover,
+.block__icon:hover,
 .b3-list-item__graphic--arrow:hover,
-.block__icon:hover {
+.b3-list-item__action:hover,
+span[data-type="counter"]:hover {
   color: var(--NL-theme-color) !important;
   background-color: var(--NL-button-background-hover) !important;
 }
 
 /* 点击状态 */
+/* 顶栏按钮 */
+.b3-tooltips__s:active,
+.b3-tooltips__e:not(.dock__item):active,
+.toolbar__item:not(#closeWindow):active {
+  background-color: var(--NL-tab-background-click) !important;
+}
+
 /* 编辑器页签和富文本工具栏按钮 */
 .vditor-toolbar__item:active,
 .layout-tab-bar .item:active {
@@ -857,17 +858,15 @@ span[data-type="counter"]:hover,
   background-color: var(--NL-list-background-click) !important;
 }
 
-.b3-list--background .b3-list-item:active .b3-list-item__text,
-.b3-list--background .b3-list-item:active .b3-list-item__graphic {
+.b3-list--background .b3-list-item:active *:not(.ft__secondary *) {
   color: var(--NL-theme-on-surface-focus) !important;
 }
 
-.b3-list-item__action:active,
-span[data-type="counter"]:active,
 .item__close:active,
-.b3-list-item__graphic--arrow:active,
 .block__icon:active,
-.b3-list-item__graphic--arrow:active {
+.b3-list-item__graphic--arrow:active,
+.b3-list-item__action:active,
+span[data-type="counter"]:active {
   background-color: var(--NL-button-background-click) !important;
 }
 
@@ -884,8 +883,11 @@ span[data-type="counter"]:active,
   background-color: var(--NL-list-background-focus) !important;
 }
 
-.b3-list--background .b3-list-item--focus .b3-list-item__text,
-.b3-list--background .b3-list-item--focus .b3-list-item__graphic {
+.b3-list--background .b3-list-item--focus .b3-list-item__text {
+  font-weight: 600;
+}
+
+.b3-list--background .b3-list-item--focus *:not(.ft__secondary *) {
   color: var(--NL-theme-on-surface-focus) !important;
 }
 
@@ -902,10 +904,10 @@ span[data-type="counter"]:active,
 }
 
 /* 侧边栏页签列表上的按钮 */
-.b3-list--background .b3-list-item--focus .b3-list-item__action:hover,
-.b3-list--background .b3-list-item--focus span[data-type="counter"]:hover,
 .layout__wnd--active .layout-tab-bar .item--focus .item__close:hover,
-.b3-list--background .b3-list-item--focus .b3-list-item__graphic--arrow:hover {
+.b3-list--background .b3-list-item--focus .b3-list-item__graphic--arrow:hover,
+.b3-list--background .b3-list-item--focus .b3-list-item__action:hover,
+.b3-list--background .b3-list-item--focus span[data-type="counter"]:hover {
   background-color: var(--NL-button-background-focus-hover) !important;
 }
 
@@ -921,11 +923,15 @@ span[data-type="counter"]:active,
   background-color: var(--NL-list-background-focus-click) !important;
 }
 
+.b3-list--background .b3-list-item--focus:active .ft__secondary * {
+  color: var(--b3-theme-secondary) !important;
+}
+
 /* 侧边栏页签列表上的按钮 */
-.b3-list--background .b3-list-item--focus .b3-list-item__action:active,
-.b3-list--background .b3-list-item--focus span[data-type="counter"]:active,
 .layout__wnd--active .layout-tab-bar .item--focus .item__close:active,
-.b3-list--background .b3-list-item--focus .b3-list-item__graphic--arrow:active {
+.b3-list--background .b3-list-item--focus .b3-list-item__graphic--arrow:active,
+.b3-list--background .b3-list-item--focus .b3-list-item__action:active,
+.b3-list--background .b3-list-item--focus span[data-type="counter"]:active {
   background-color: var(--NL-button-background-focus-click) !important;
 }
 
@@ -940,13 +946,14 @@ span[data-type="counter"]:active,
 
 .vditor-ir ul,
 .vditor-ir ol {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .vditor-ir ul p,
 .vditor-ir ol p {
   margin-bottom: 8px !important;
   line-height: 25px !important;
+  padding: 0 !important;
 }
 
 /* 无序列表 */
@@ -1125,6 +1132,16 @@ span[data-type="counter"]:active,
 .vditor-ir h2 {
   border-bottom: 1px solid var(--NL-list-border-color) !important;
 }
+
+.vditor-ir h1,
+.vditor-ir h2,
+.vditor-ir h3,
+.vditor-ir h4,
+.vditor-ir h5,
+.vditor-ir h6 {
+  padding-top: 0.6em;
+  margin-bottom: 0.4em;
+}
 /* 
 .vditor-ir h1 {
   font-size: 1.875em;
@@ -1250,7 +1267,6 @@ span[data-type="code"] code,
 }
 
 .vditor-ir__blockref:hover {
-  /* text-decoration: underline; */
   border-bottom: 1px solid var(--NL-vditor-inline-blockref-color);
 }
 
@@ -1272,7 +1288,8 @@ span[data-type="code"] code,
 /* 段落块样式 */
 .vditor-ir .vditor-reset > p:not(img) {
   line-height: 25px;
-  margin-bottom: 24px;
+  margin-bottom: 1em;
+  margin-top: 0;
   /* text-align: justify; */
 }
 
@@ -1352,6 +1369,7 @@ span[data-type="inline-math"]
 /* 键盘符 */
 kbd {
   background-color: var(--NL-vditor-inline-code-background) !important;
+  color: var(--NL-theme-color) !important;
 }
 
 /* mermaid */
