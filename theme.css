@@ -307,10 +307,20 @@
 
 .item--unupdate::before {
   content: "";
+  display: inline-block;
   height: 14px;
   width: 14px;
   margin-right: 8px;
-  background: no-repeat round url("img/done_black_18dp.svg");
+  background-color: var(--NL-theme-on-surface-focus);
+  -webkit-mask: url("img/done_black_18dp.svg") no-repeat;
+  mask: url("img/done_black_18dp.svg") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.layout-tab-bar .item--unupdate:active::before,
+.layout-tab-bar .item--unupdate:not(.item--focus)::before {
+  background-color: var(--NL-theme-color-fade);
 }
 
 .item--unupdate .item__graphic {
@@ -933,6 +943,15 @@ span[data-type="counter"]:active {
   background-color: var(--NL-button-background-focus-click) !important;
 }
 
+/* 不打开页面时的命令菜单 */
+.b3-list--text .b3-list-item {
+  color: var(--NL-theme-on-surface);
+}
+
+.b3-list--text .b3-list-item:hover {
+  color: var(--NL-theme-color);
+}
+
 /* ---------------------------------------------------------------------------------------------------- */
 
 /* 编辑器样式 */
@@ -984,7 +1003,7 @@ span[data-type="counter"]:active {
 /* 代码块 */
 .hljs:not(.md) {
   padding: 4px 16px;
-  line-height: 1.5 !important;
+  line-height: 1.6 !important;
   border: none !important;
   border-radius: 3px !important;
   background-image: none !important;
