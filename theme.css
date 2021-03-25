@@ -1322,6 +1322,7 @@ blockquote {
 .vditor-ir div[data-type="block-query-embed"] > div[data-render] {
   margin: 1.2em 0 1.5em 4px !important;
   /* box-shadow: var(--b3-dialog-shadow); */
+  border-radius: 3px;
   border: 1px solid var(--NL-tab-background-focus-hover) !important;
 }
 
@@ -1354,7 +1355,7 @@ span[data-type="inline-math"]
   > div[data-render]
   > .fn__flex-column:not(:last-child)
   > .fn__flex-1 {
-  border-bottom: 1px solid var(--NL-text-border-color) !important;
+  border-bottom: 1px solid var(--NL-tab-background-focus-hover) !important;
 }
 
 /* 分割线样式 */
