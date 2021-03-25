@@ -170,12 +170,10 @@
 
   --NL-dialog-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
     rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
-  --NL-img-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
-    rgba(15, 15, 15, 0.1) 0px 3px 5px, rgba(15, 15, 15, 0.2) 4px 6px 8px;
   --NL-button-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
     rgba(15, 15, 15, 0.1) 0px 1px 2px;
-  --NL-test-filed-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
-  --NL-test-filed-focus-shadow: rgba(46, 170, 220, 0.7) 0px 0px 0px 1px inset,
+  --NL-text-field-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
+  --NL-text-field-focus-shadow: rgba(46, 170, 220, 0.7) 0px 0px 0px 1px inset,
     rgba(46, 170, 220, 0.4) 0px 0px 0px 2px;
 
   /* diff */
@@ -557,13 +555,13 @@
   /* border-color: var(--NL-tab-background-focus-hover); */
   border: none;
   border-radius: 3px;
-  box-shadow: var(--NL-test-filed-shadow);
+  box-shadow: var(--NL-text-field-shadow);
   background: var(--NL-text-field-background);
 }
 
 .b3-text-filed:not(.b3-text-filed--small):not(.b3-form__icon-input):focus,
 .pcr-app .pcr-interaction .pcr-result:focus {
-  box-shadow: var(--NL-test-filed-focus-shadow) !important;
+  box-shadow: var(--NL-text-field-focus-shadow) !important;
 }
 
 /* 外部链接打开文件夹 */
@@ -1323,7 +1321,8 @@ blockquote {
 .vditor-ir div[data-type="block-ref-embed"] > div[data-render],
 .vditor-ir div[data-type="block-query-embed"] > div[data-render] {
   margin: 1.2em 0 1.5em 4px !important;
-  box-shadow: var(--b3-dialog-shadow);
+  /* box-shadow: var(--b3-dialog-shadow); */
+  border: 1px solid var(--NL-tab-background-focus-hover) !important;
 }
 
 .vditor-ir div[data-type="code-block"],
@@ -1335,10 +1334,6 @@ span[data-type="img"] img,
 
 .vditor-ir blockquote {
   margin-left: 7px !important;
-}
-
-span[data-type="img"] img {
-  box-shadow: var(--NL-img-shadow);
 }
 
 /* 多种行内元素的样式调整 */
