@@ -329,15 +329,15 @@
   background-color: transparent !important;
 }
 
-.block__logo{
+.block__logo {
   padding-bottom: 2px;
 }
-.block__logo svg{
+.block__logo svg {
   padding-bottom: 6px;
 }
 
 /* 侧边栏上的搜索框 */
-.search__label:focus-within{
+.search__label:focus-within {
   color: var(--NL-theme-color);
 }
 
@@ -384,7 +384,7 @@
 }
 
 *:not(.config-keymap)
-  > .b3-list--background:not(.b3-tab-bar):not(.config-assets)
+  > .b3-list--background:not(.b3-tab-bar):not(.config-assets):not(.b3-menu)
   * {
   color: var(--NL-theme-on-surface);
 }
@@ -437,7 +437,7 @@
   animation: showView 0.35s ease-in-out;
 }
 
-.b3-dialog__container *{
+.b3-dialog__container * {
   user-select: none;
 }
 
@@ -451,7 +451,7 @@
 }
 
 /* 搜索框 */
-.b3-form__icon-icon{
+.b3-form__icon-icon {
   top: 6px;
 }
 
@@ -502,16 +502,16 @@
   background-color: var(--NL-list-background-hover);
 }
 
+.b3-select:focus option {
+  background-color: var(--NL-theme-background);
+}
+
 .b3-select:active {
   background-color: var(--NL-list-background-focus-hover);
 }
 
 .b3-select:focus {
   box-shadow: none;
-}
-
-.b3-select:focus option{
-  background-color: var(--NL-theme-background);
 }
 
 /* 按钮 */
@@ -947,18 +947,20 @@ span[data-type="counter"]:active {
 .vditor-ir ul,
 .vditor-ir ol {
   margin-bottom: 20px;
+  margin-left: 4px;
 }
 
 .vditor-ir ul p,
 .vditor-ir ol p {
-  margin-bottom: 8px !important;
+  margin: 8px 0 !important;
+  /* margin-bottom: 8px !important; */
   line-height: 25px !important;
   padding: 0 !important;
 }
 
 /* 无序列表 */
-.vditor-ir ul ol,
-.vditor-ir ul ul {
+.vditor-ir ul ul,
+.vditor-ir ul ol {
   border-left: 1px solid var(--NL-list-border-color);
   margin-left: -0.9em !important;
   padding-left: 2.8em !important; /* 父子结点之间的距离 */
@@ -972,14 +974,31 @@ span[data-type="counter"]:active {
   padding-left: 2.8em !important; /* 父子结点之间的距离 */
 }
 
+/* 任务列表 */
+.vditor-ir ul .vditor-task ul,
+.vditor-ir ul .vditor-task ol {
+  border-left: 1px solid var(--NL-list-border-color);
+  margin-left: -0.7em !important;
+  padding-left: 2.8em !important; /* 父子结点之间的距离 */
+}
+
 /* 代码主题ant-design下的样式调整 */
 /* 代码块 */
 .hljs:not(.md) {
+  padding: 4px 16px;
   line-height: 1.5 !important;
   border: none !important;
   border-radius: 3px !important;
   background-image: none !important;
   background-color: var(--NL-theme-surface) !important;
+}
+
+.vditor-linenumber {
+  padding-left: 3.5em !important;
+}
+
+.vditor-linenumber__rows {
+  transform: translateY(-1px);
 }
 
 .vditor-reset code:not(.hljs) {
@@ -1002,10 +1021,10 @@ span[data-type="counter"]:active {
 }
 
 /* 代码编辑区显示时不显示预览 */
-.vditor-ir__node--expand:not([data-type="inline-math"]):not([data-type="html-block"])
+/* .vditor-ir__node--expand:not([data-type="inline-math"]):not([data-type="html-block"])
   .vditor-ir__preview {
   display: none;
-}
+} */
 
 /* 表格 */
 .vditor-ir table tr {
@@ -1038,7 +1057,7 @@ span[data-type="counter"]:active {
 
 /* 块标识菜单样式 */
 .vditor-ir__menu {
-  margin-left: -7px;
+  margin-left: -4.5px;
   margin-top: -4.5px !important;
 }
 
@@ -1188,10 +1207,10 @@ span[data-type="counter"]:active {
 .vditor-ir ol h4,
 .vditor-ir ol h5,
 .vditor-ir ol h6 {
-  margin: 0 auto;
+  margin: 12px 0;
   padding: 0;
   border: none;
-  line-height: 2;
+  line-height: 1;
 }
 
 /* 外部链接 */
@@ -1289,7 +1308,6 @@ span[data-type="code"] code,
 .vditor-ir .vditor-reset > p:not(img) {
   line-height: 25px;
   margin-bottom: 1em;
-  margin-top: 0;
   /* text-align: justify; */
 }
 
@@ -1298,22 +1316,25 @@ blockquote {
   color: var(--NL-theme-color) !important;
   border-left: 3px solid var(--NL-theme-color) !important;
   background-color: var(--b3-theme-background) !important;
-  padding: 0.15em 0.9em !important;
+  padding: 0 0.9em !important;
 }
 
 /* 五种卡片的样式调整 */
 .vditor-ir div[data-type="block-ref-embed"] > div[data-render],
 .vditor-ir div[data-type="block-query-embed"] > div[data-render] {
-  margin-top: 1.2em !important;
-  margin-bottom: 1.5em !important;
+  margin: 1.2em 0 1.5em 4px !important;
   box-shadow: var(--b3-dialog-shadow);
 }
+
 .vditor-ir div[data-type="code-block"],
 span[data-type="img"] img,
 .vditor-ir blockquote,
 .vditor-ir table {
-  margin-top: 1.2em !important;
-  margin-bottom: 1.5em !important;
+  margin: 1.2em 0 1.5em 4px !important;
+}
+
+.vditor-ir blockquote {
+  margin-left: 7px !important;
 }
 
 span[data-type="img"] img {
