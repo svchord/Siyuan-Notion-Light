@@ -43,7 +43,7 @@
 
   --NL-theme-primary: rgb(46, 170, 220);
   --NL-theme-primary-lightest: rgba(46, 170, 220, 0.1);
-  --NL-theme-secondary: rgb(224,62,62);
+  --NL-theme-secondary: #dd4a68;
   --NL-theme-background: #ffffff;
   --NL-theme-surface: rgb(247, 246, 243);
   --NL-theme-highlight: rgb(213, 238, 248);
@@ -246,7 +246,7 @@
   --NL-vditor-inline-blockref-color: rgb(11, 110, 153);
   --NL-vditor-inline-code-color: #eb5757;
   --NL-vditor-inline-code-background: rgba(135, 131, 120, 0.15);
-  --NL-vditor-inline-mark-background: rgb(250, 235, 221);
+  --NL-vditor-inline-mark-background: rgb(251,228,228);
 }
 
 .language-graphviz polygon {
@@ -719,7 +719,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
   > .vditor-reset
   > .vditor-ir__node--expand:first-child
   .vditor-ir__preview {
-  margin-top: -24px;
+  margin-top: -4px;
 }
 
 .vditor:not(.panelVditor)
@@ -729,6 +729,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
   > div[data-type="html-block"]:first-child
   .vditor-ir__preview {
   transform: translateX(-23.5vw) translateY(-33vh);
+  min-height: 0px;
   height: 0px;
 }
 
