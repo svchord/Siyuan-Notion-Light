@@ -12,20 +12,36 @@
 
 @keyframes showBlock {
   0% {
-    transform: translateY(6.5px);
+    transform: scale(0.96);
+    transform-origin: 50% top;
     opacity: 0;
   }
+  50% {
+    transform: scale(1.02);
+    transform-origin: 50% top;
+    opacity: 0.5;
+  }
   100% {
+    transform: scale(1);
+    transform-origin: 50% top;
     opacity: 1;
   }
 }
 
 @keyframes showView {
   0% {
-    transform: translateY(25px);
+    transform: scale(0.96);
+    transform-origin: 50% top;
     opacity: 0;
   }
+  50% {
+    transform: scale(1.01);
+    transform-origin: 50% top;
+    opacity: 0.5;
+  }
   100% {
+    transform: scale(1);
+    transform-origin: 50% top;
     opacity: 1;
   }
 }
@@ -162,6 +178,9 @@
   --NL-task-transition: background-color 20ms ease-in 0s;
   --NL-link-transition: border-color 100ms ease-in, opacity 100ms ease-in;
   --NL-setting-link-transition: background-color 20ms ease-in 0s;
+  --NL-column-transition:width 0.2s ease-in-out;
+  --NL-popover-transition:transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  --NL-pin-transition:transform 200ms ease-in-out;
 
   /* 阴影 */
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -246,7 +265,7 @@
   --NL-vditor-inline-blockref-color: rgb(11, 110, 153);
   --NL-vditor-inline-code-color: #eb5757;
   --NL-vditor-inline-code-background: rgba(135, 131, 120, 0.15);
-  --NL-vditor-inline-mark-background: rgb(251,228,228);
+  --NL-vditor-inline-mark-background: rgb(251, 228, 228);
 }
 
 .language-graphviz polygon {
@@ -326,7 +345,12 @@
 .item--unupdate .item__graphic {
   display: none;
 }
+
 /* 侧边栏 */
+.fn__flex-column {
+  transition: var(--NL-column-transition);
+}
+
 /* 侧边栏顶栏 */
 .block__icons {
   background-color: var(--NL-theme-surface);
@@ -442,6 +466,7 @@
 /* 设置菜单 */
 /* 设置窗口 */
 .b3-dialog__container {
+  width: 50vw;
   animation: showView 0.35s ease-in-out;
 }
 
@@ -637,9 +662,16 @@
 } */
 
 /* 块引用预览浮窗的样式 */
+.block__popover {
+  transform: translateY(6.5px);
+  opacity: 0;
+}
+
 .block__popover--open {
   box-shadow: var(--b3-dialog-shadow);
-  animation: showBlock 0.3s ease-in-out;
+  transform: translateY(0px);
+  opacity: 1;
+  transition: var(--NL-popover-transition);
 }
 
 .ft__primary {
@@ -648,12 +680,12 @@
 
 span[data-type="pin"]:not([aria-label="取消钉住"]) svg {
   transform: rotate(45deg) translateY(1px);
-  transition: transform 200ms ease-in-out;
+  transition: var(--NL-pin-transition);
 }
 
 span[data-type="pin"]:not([aria-label="钉住"]) svg {
   transform: rotate(0deg) translateY(1px);
-  transition: transform 200ms ease-in-out;
+  transition: var(--NL-pin-transition);
 }
 
 /* 分栏中间的分隔线 */
@@ -847,6 +879,11 @@ span[data-type="counter"]:hover {
   background-color: var(--NL-button-background-hover) !important;
 }
 
+.ft__error:hover,
+.ft__error:active {
+  color: var(--b3-theme-error) !important;
+}
+
 /* 点击状态 */
 /* 顶栏按钮 */
 .b3-tooltips__s:active,
@@ -869,6 +906,10 @@ span[data-type="counter"]:hover {
 
 .b3-list--background .b3-list-item:active *:not(.ft__secondary *) {
   color: var(--NL-theme-on-surface-focus) !important;
+}
+
+.b3-list--background .b3-list-item:active .ft__error * {
+  color: var(--b3-theme-error) !important;
 }
 
 .item__close:active,
@@ -956,6 +997,22 @@ span[data-type="counter"]:active {
 /* ---------------------------------------------------------------------------------------------------- */
 
 /* 编辑器样式 */
+*:not(.panelVditor) > .vditor-content > .vditor-ir {
+  padding: 24px calc(50% - 400px) !important;
+  /* transition: padding .2s ease-in-out !important; */
+}
+
+.vditor-ir__gutter {
+  left: calc(50% - 400px) !important;
+}
+
+.vditor-toolbar {
+  padding: 0 calc(50% - 400px) !important;
+}
+
+.vditor-reset :first-child {
+  margin-top: 0 !important;
+}
 
 /* 大纲样式 */
 .vditor-ir ul > li:not(.vditor-task) {
@@ -970,8 +1027,7 @@ span[data-type="counter"]:active {
 
 .vditor-ir ul p,
 .vditor-ir ol p {
-  margin: 8px 0 !important;
-  /* margin-bottom: 8px !important; */
+  margin-bottom: 8px !important;
   line-height: 25px !important;
   padding: 0 !important;
 }
@@ -1340,7 +1396,7 @@ blockquote {
 /* 五种卡片的样式调整 */
 .vditor-ir div[data-type="block-ref-embed"] > div[data-render],
 .vditor-ir div[data-type="block-query-embed"] > div[data-render] {
-  margin: 1.2em 0 1.5em 4px !important;
+  margin: 1.2em 0 1.5em 0px !important;
   /* box-shadow: var(--b3-dialog-shadow); */
   border-radius: 3px;
   border: 1px solid var(--NL-tab-background-focus-hover) !important;
@@ -1350,10 +1406,25 @@ blockquote {
 span[data-type="img"] img,
 .vditor-ir blockquote,
 .vditor-ir table {
-  margin: 1.2em 0 1.5em 4px !important;
+  margin: 1.2em 0 1.5em 0px !important;
 }
 
 .vditor-ir blockquote {
+  margin-left: 3px;
+}
+
+.vditor-ir .vditor-reset > div[data-type="block-ref-embed"] > div[data-render],
+.vditor-ir
+  .vditor-reset
+  > div[data-type="block-query-embed"]
+  > div[data-render],
+.vditor-ir .vditor-reset > div[data-type="code-block"],
+.vditor-ir .vditor-reset > span[data-type="img"] img,
+.vditor-ir .vditor-reset > table {
+  margin-left: 4px !important;
+}
+
+.vditor-ir .vditor-reset > blockquote {
   margin-left: 7px !important;
 }
 
