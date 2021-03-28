@@ -47,6 +47,9 @@
 }
 
 :root {
+  /* 编辑器宽度 */
+  --NL-vditor-width:800px;
+
   /* 主色 */
   --b3-theme-primary: var(--NL-theme-primary);
   --b3-theme-primary-light: rgba(66, 133, 244, 0.54);
@@ -348,8 +351,26 @@
 }
 
 /* 侧边栏 */
-.layout .fn__flex-shrink {
+/* 侧边栏动画 */
+#layouts > .fn__flex-1 > .fn__flex-column{
   transition: var(--NL-column-transition);
+}
+
+*:not(.panelVditor) > .vditor-content > .vditor-ir {
+  /* transition: padding .3s cubic-bezier(0,0,.2,1) 0ms; */
+  padding: 24px calc(50% - var(--NL-vditor-width) / 2) !important;
+}
+
+.vditor-ir__gutter {
+  left: calc(50% - var(--NL-vditor-width) / 2 + 4px) !important;
+}
+
+.vditor-toolbar {
+  padding: 0 calc(50% - var(--NL-vditor-width) / 2) !important;
+}
+
+.vditor-reset :first-child {
+  margin-top: 0 !important;
 }
 
 /* 侧边栏顶栏 */
@@ -1013,23 +1034,6 @@ span[data-type="counter"]:active {
 /* ---------------------------------------------------------------------------------------------------- */
 
 /* 编辑器样式 */
-*:not(.panelVditor) > .vditor-content > .vditor-ir {
-  /* transition: padding .3s cubic-bezier(0,0,.2,1) 0ms; */
-  padding: 24px calc(50% - 400px) !important;
-}
-
-.vditor-ir__gutter {
-  left: calc(50% - 396px) !important;
-}
-
-.vditor-toolbar {
-  padding: 0 calc(50% - 400px) !important;
-}
-
-.vditor-reset :first-child {
-  margin-top: 0 !important;
-}
-
 /* 大纲样式 */
 .vditor-ir ul > li:not(.vditor-task) {
   list-style-type: disc;
