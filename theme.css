@@ -178,9 +178,9 @@
   --NL-task-transition: background-color 20ms ease-in 0s;
   --NL-link-transition: border-color 100ms ease-in, opacity 100ms ease-in;
   --NL-setting-link-transition: background-color 20ms ease-in 0s;
-  --NL-column-transition:width 0.2s ease-in-out;
-  --NL-popover-transition:transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  --NL-pin-transition:transform 200ms ease-in-out;
+  --NL-column-transition: width 300ms cubic-bezier(0, 0.8, 0.2, 1);
+  --NL-popover-transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  --NL-pin-transition: transform 200ms ease-in-out;
 
   /* 阴影 */
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -194,6 +194,7 @@
   --NL-text-field-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
   --NL-text-field-focus-shadow: rgba(46, 170, 220, 0.7) 0px 0px 0px 1px inset,
     rgba(46, 170, 220, 0.4) 0px 0px 0px 2px;
+  --NL-block-shadow:rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
 
   /* diff */
   --b3-diff-add: #dfd;
@@ -347,7 +348,7 @@
 }
 
 /* 侧边栏 */
-.fn__flex-column {
+.layout .fn__flex-shrink {
   transition: var(--NL-column-transition);
 }
 
@@ -689,6 +690,21 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
 }
 
 /* 分栏中间的分隔线 */
+.layout__resize:hover:after{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.layout__resize{
+  background-color: transparent;
+}
+
+.layout__resize:not(.layout__resize--lr)::after{
+  height: 2px;
+}
+
+.layout__resize--lr::after{
+  width: 2px;
+}
 /* .layout > .fn__flex > .fn__flex-1 > .layout__resize--lr::after{
   top:45%;
   height: 10%;
@@ -998,12 +1014,12 @@ span[data-type="counter"]:active {
 
 /* 编辑器样式 */
 *:not(.panelVditor) > .vditor-content > .vditor-ir {
+  /* transition: padding .3s cubic-bezier(0,0,.2,1) 0ms; */
   padding: 24px calc(50% - 400px) !important;
-  /* transition: padding .2s ease-in-out !important; */
 }
 
 .vditor-ir__gutter {
-  left: calc(50% - 400px) !important;
+  left: calc(50% - 396px) !important;
 }
 
 .vditor-toolbar {
@@ -1397,9 +1413,9 @@ blockquote {
 .vditor-ir div[data-type="block-ref-embed"] > div[data-render],
 .vditor-ir div[data-type="block-query-embed"] > div[data-render] {
   margin: 1.2em 0 1.5em 0px !important;
-  /* box-shadow: var(--b3-dialog-shadow); */
+  box-shadow: var(--NL-block-shadow);
   border-radius: 3px;
-  border: 1px solid var(--NL-tab-background-focus-hover) !important;
+  /* border: 1px solid var(--NL-tab-background-focus-hover) !important; */
 }
 
 .vditor-ir div[data-type="code-block"],
