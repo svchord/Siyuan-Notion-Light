@@ -48,7 +48,7 @@
 
 :root {
   /* 编辑器宽度 */
-  --NL-vditor-width:800px;
+  --NL-vditor-width: 800px;
 
   /* 主色 */
   --b3-theme-primary: var(--NL-theme-primary);
@@ -181,7 +181,7 @@
   --NL-task-transition: background-color 20ms ease-in 0s;
   --NL-link-transition: border-color 100ms ease-in, opacity 100ms ease-in;
   --NL-setting-link-transition: background-color 20ms ease-in 0s;
-  --NL-column-transition: width 300ms cubic-bezier(0, 0.8, 0.2, 1);
+  --NL-column-transition: width 300ms cubic-bezier(0, 0.6, 0.4, 1);
   --NL-popover-transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   --NL-pin-transition: transform 200ms ease-in-out;
 
@@ -197,7 +197,8 @@
   --NL-text-field-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
   --NL-text-field-focus-shadow: rgba(46, 170, 220, 0.7) 0px 0px 0px 1px inset,
     rgba(46, 170, 220, 0.4) 0px 0px 0px 2px;
-  --NL-block-shadow:rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+  --NL-block-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.1) 0px 2px 4px;
 
   /* diff */
   --b3-diff-add: #dfd;
@@ -352,25 +353,36 @@
 
 /* 侧边栏 */
 /* 侧边栏动画 */
-#layouts > .fn__flex-1 > .fn__flex-column{
+#layouts > .fn__flex-1 > .fn__flex-shrink {
   transition: var(--NL-column-transition);
 }
 
-*:not(.panelVditor) > .vditor-content > .vditor-ir {
-  /* transition: padding .3s cubic-bezier(0,0,.2,1) 0ms; */
-  padding: 24px calc(50% - var(--NL-vditor-width) / 2) !important;
+.vditor:not(.panelVditor) > .vditor-content > .vditor-ir {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  z-index: 1;
+  position: relative;
+  padding: 0 !important;
+  align-items: center;
+}
+
+.vditor:not(.panelVditor) > .vditor-content > .vditor-ir > .vditor-reset {
+  width: calc(var(--NL-vditor-width) + 96px * 2 - 8px);
+  max-width: 100%;
+  padding-top: 24px;
+  padding-left: calc(96px + env(safe-area-inset-left)) !important;
+  padding-right: calc(96px + env(safe-area-inset-right)) !important;
+  padding-bottom: 30vh;
 }
 
 .vditor-ir__gutter {
-  left: calc(50% - var(--NL-vditor-width) / 2 + 4px) !important;
+  transform: translateY(-24px);
+  left: max(calc(50% - var(--NL-vditor-width) / 2 + 4px), 96px) !important;
 }
 
 .vditor-toolbar {
-  padding: 0 calc(50% - var(--NL-vditor-width) / 2) !important;
-}
-
-.vditor-reset :first-child {
-  margin-top: 0 !important;
+  padding: 0 max(calc(50% - var(--NL-vditor-width) / 2 + 4px), 96px) !important;
 }
 
 /* 侧边栏顶栏 */
@@ -651,6 +663,10 @@
 ::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
+/* 
+::-webkit-scrollbar-track {
+  background: #EDECE9;
+} */
 
 /* .block__icons + .fn__flex-1 */
 :hover::-webkit-scrollbar-thumb {
@@ -711,19 +727,19 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
 }
 
 /* 分栏中间的分隔线 */
-.layout__resize:hover:after{
+.layout__resize:hover:after {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.layout__resize{
+.layout__resize {
   background-color: transparent;
 }
 
-.layout__resize:not(.layout__resize--lr)::after{
+.layout__resize:not(.layout__resize--lr)::after {
   height: 2px;
 }
 
-.layout__resize--lr::after{
+.layout__resize--lr::after {
   width: 2px;
 }
 /* .layout > .fn__flex > .fn__flex-1 > .layout__resize--lr::after{
@@ -770,7 +786,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
 }
 
 /* 题头图样式 */
-/* .vditor-ir {
+.vditor-ir {
   overflow-x: hidden;
 }
 
@@ -812,7 +828,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
   min-height: 10vh;
   width: 100vw;
   object-fit: cover;
-} */
+}
 
 /* 编辑器的搜索框 */
 .vditor-search {
@@ -1034,6 +1050,10 @@ span[data-type="counter"]:active {
 /* ---------------------------------------------------------------------------------------------------- */
 
 /* 编辑器样式 */
+.vditor-reset :first-child {
+  margin-top: 0 !important;
+}
+
 /* 大纲样式 */
 .vditor-ir ul > li:not(.vditor-task) {
   list-style-type: disc;
