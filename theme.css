@@ -103,6 +103,7 @@
   --b3-scroll-color: var(--NL-scroll-color);
 
   --NL-scroll-color: #d3d1cb;
+  --NL-scroll-track: #edece9;
   --NL-scroll-color-hover: rgb(174, 172, 166);
 
   /* 列表 */
@@ -309,6 +310,8 @@
 
 .vditor-toolbar__item[data-type="upload"] {
   padding-top: 6px;
+  padding-left: 4px;
+  padding-right: 6px;
   width: 22px;
 }
 
@@ -373,7 +376,7 @@
   padding-top: 24px;
   padding-left: calc(96px + env(safe-area-inset-left)) !important;
   padding-right: calc(96px + env(safe-area-inset-right)) !important;
-  padding-bottom: 30vh;
+  /* padding-bottom: 30vh; */
 }
 
 .vditor-ir__gutter {
@@ -444,6 +447,14 @@
 }
 
 /* 侧边栏列表 */
+.layout-tab-container .b3-list--background:last-child {
+  padding-bottom: 10vh !important;
+}
+
+.block__icons + .vditor-reset > ul {
+  height: auto !important;
+}
+
 .file-tree .fn__flex-1,
 .b3-list--background {
   background-color: var(--NL-theme-surface);
@@ -599,9 +610,9 @@
 }
 
 /* 警告 */
-.b3-snackbar__content {
+/* .b3-snackbar__content {
   line-height: 28px;
-}
+} */
 
 .b3-snackbar__content,
 .b3-snackbar__content a {
@@ -659,19 +670,23 @@
 }
 
 /* 滚动条 */
-/* .block__icons + .fn__flex-1 */
-::-webkit-scrollbar-thumb {
-  background-color: transparent;
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
-/* 
-::-webkit-scrollbar-track {
-  background: #EDECE9;
-} */
 
-/* .block__icons + .fn__flex-1 */
-:hover::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
+  /* background-color: transparent; */
   background-color: var(--NL-scroll-color);
 }
+
+::-webkit-scrollbar-track {
+  background-color: var(--NL-scroll-track);
+}
+/* 
+:hover::-webkit-scrollbar-thumb {
+  background-color: var(--NL-scroll-color);
+} */
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--NL-scroll-color-hover) !important;
@@ -786,7 +801,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
 }
 
 /* 题头图样式 */
-.vditor-ir {
+/* .vditor-ir {
   overflow-x: hidden;
 }
 
@@ -828,7 +843,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
   min-height: 10vh;
   width: 100vw;
   object-fit: cover;
-}
+} */
 
 /* 编辑器的搜索框 */
 .vditor-search {
@@ -1061,6 +1076,7 @@ span[data-type="counter"]:active {
 
 .vditor-ir ul,
 .vditor-ir ol {
+  margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 4px;
 }
@@ -1469,14 +1485,13 @@ span[data-type="img"] img,
 }
 
 /* 多种行内元素的样式调整 */
-span[data-type="strong"],
+/* span[data-type="strong"], */
 span[data-type="code"],
-span[data-type="em"],
-span[data-type="s"],
+/* span[data-type="em"], */
+/* span[data-type="s"], */
 span[data-type="a"],
 span[data-type="tag"],
-span[data-type="inline-math"]
-/* span[data-type="ref-text-tpl-render-result"] */ {
+span[data-type="inline-math"] {
   margin: 0 0.12em;
 }
 
