@@ -1,13 +1,13 @@
 @font-face {
   font-family: "JetBrains Mono";
   font-style: normal;
-  src: url("fonts/JetBrainsMono-Regular.ttf");
+  src: url("src/fonts/JetBrainsMono-Regular.ttf");
 }
 
 @font-face {
   font-family: "Noto Sans SC";
   font-style: normal;
-  src: url("fonts/NotoSansSC-Regular.otf");
+  src: url("src/fonts/NotoSansSC-Regular.otf");
 }
 
 @keyframes showBlock {
@@ -364,8 +364,8 @@
   margin-right: 8px;
   /* transform: translateY(1px); */
   background-color: var(--NL-theme-primary);
-  -webkit-mask: url("img/radio_button_checked_black_18dp.svg") no-repeat;
-  mask: url("img/radio_button_checked_black_18dp.svg") no-repeat;
+  -webkit-mask: url("src/img/radio_button_checked_black_18dp.svg") no-repeat;
+  mask: url("src/img/radio_button_checked_black_18dp.svg") no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
@@ -1334,7 +1334,7 @@ div[data-type="block-render"] .vditor-reset > ul {
 
 .vditor-task input:checked {
   border: none;
-  background: no-repeat round url("img/done_white_18dp.svg");
+  background: no-repeat round url("src/img/done_white_18dp.svg");
   background-color: var(--NL-tolist-done-background);
   /* outline: none; */
 }
