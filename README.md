@@ -2,6 +2,8 @@
 
 ## 预览图
 
+![preview](https://user-images.githubusercontent.com/61345763/113559415-e4241300-9633-11eb-8447-bd42b08bd95e.png)
+
 ## 简介
 
 - 参考Notion的Light主题
