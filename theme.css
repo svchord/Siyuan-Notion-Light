@@ -61,6 +61,7 @@
   --b3-theme-error: #d23f31;
 
   --NL-theme-primary: rgb(46, 170, 220);
+  --NL-theme-primary-lighter: rgba(46, 170, 220, 0.4);
   --NL-theme-primary-lightest: rgba(46, 170, 220, 0.1);
   --NL-theme-secondary: #dd4a68;
   --NL-theme-secondary-lighter: rgba(221, 74, 104, 0.4);
@@ -332,8 +333,7 @@
 .layout-tab-bar .item {
   font-weight: 500;
   margin-left: 9.46px;
-  /* padding: 2px 6px;
-  margin-top: 5px; */
+  padding: 0px 6px;
   margin-bottom: 3px;
   border: none;
   border-radius: 3px;
@@ -341,6 +341,15 @@
 
 .layout-tab-bar .item:first-child {
   margin-left: 12px !important;
+}
+
+.layout-tab-bar .item .item__text{
+  line-height: 24px;
+}
+
+.layout-tab-bar .item .item__close {
+  height: 7px;
+  width: 7px;
 }
 
 .item--unupdate {
@@ -354,7 +363,7 @@
   width: 10px;
   margin-right: 8px;
   /* transform: translateY(1px); */
-  background-color: var(--b3-theme-secondary);
+  background-color: var(--NL-theme-primary);
   -webkit-mask: url("img/radio_button_checked_black_18dp.svg") no-repeat;
   mask: url("img/radio_button_checked_black_18dp.svg") no-repeat;
   -webkit-mask-size: 100% 100%;
@@ -362,7 +371,15 @@
 }
 
 .layout-tab-bar .item:not(.item--focus)::before {
-  background-color: var(--NL-theme-secondary-lighter);
+  background-color: var(--NL-theme-primary-lighter);
+}
+
+.item--unsave::before {
+  background-color: var(--NL-theme-secondary) !important;
+}
+
+.layout-tab-bar .item--unsave:not(.item--focus)::before {
+  background-color: var(--NL-theme-secondary-lighter) !important;
 }
 
 .item--unupdate::before {
@@ -929,6 +946,11 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
 
 .b3-slider {
   transform: translateY(-2px);
+}
+
+.block__logo--unsaved {
+  color: var(--NL-theme-color);
+  font-weight: 600;
 }
 
 /* ----------------------------------------------------------------------------------------------------------------- */
