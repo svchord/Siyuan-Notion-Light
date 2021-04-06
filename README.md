@@ -2,7 +2,7 @@
 
 ## 预览图
 
-![preview](https://user-images.githubusercontent.com/61345763/113559415-e4241300-9633-11eb-8447-bd42b08bd95e.png)
+![preview](https://user-images.githubusercontent.com/61345763/113747549-1324ac80-973a-11eb-910c-7d296bca884f.png)
 
 ## 简介
 
