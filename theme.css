@@ -1228,8 +1228,10 @@ div[data-type="block-render"] .vditor-reset > ul {
   /* background-color: rgba(55, 53, 47, 0.08); */
 }
 
-.vditor-ir__node[data-type="code-block"]:hover .vditor-ir__marker[data-type="code-block-info"],
-.vditor-ir__node[data-type="code-block"]:focus-within .vditor-ir__marker[data-type="code-block-info"]{
+.vditor-ir__node[data-type="code-block"]:hover
+  .vditor-ir__marker[data-type="code-block-info"],
+.vditor-ir__node[data-type="code-block"]:focus-within
+  .vditor-ir__marker[data-type="code-block-info"] {
   opacity: 1;
 }
 
@@ -1249,7 +1251,7 @@ div[data-type="block-render"] .vditor-reset > ul {
 }
 
 /* 代码块的行号 */
-.vditor-preview .hljs:not(.md).vditor-linenumber, 
+.vditor-preview .hljs:not(.md).vditor-linenumber,
 .vditor-ir__node[data-type="code-block"] code.vditor-linenumber {
   padding-left: 72.8px !important;
 }
@@ -1273,13 +1275,13 @@ div[data-type="block-render"] .vditor-reset > ul {
   background: rgb(234, 233, 229);
 }
 
-.vditor-copy{
+.vditor-copy {
   display: block;
   opacity: 0;
   transition: opacity 300ms ease-in;
 }
 
-.vditor-reset pre:hover .vditor-copy{
+.vditor-reset pre:hover .vditor-copy {
   opacity: 1;
 }
 
@@ -1290,12 +1292,12 @@ div[data-type="block-render"] .vditor-reset > ul {
   transform: translateX(-27px);
 }
 
-.vditor-copy > .b3-tooltips__w:active{
+.vditor-copy > .b3-tooltips__w:active {
   background-color: rgba(55, 53, 47, 0.16);
 }
 
-.vditor-copy > .b3-tooltips__w::before{
-  content: 'Copy';
+.vditor-copy > .b3-tooltips__w::before {
+  content: "Copy";
   color: rgb(55, 53, 47);
   display: inline-block;
   width: auto;
@@ -1746,4 +1748,69 @@ kbd {
 /* mermaid */
 .edgeLabel * {
   background-color: var(--NL-theme-background) !important;
+}
+
+/* TOC目录 */
+.vditor-toc{
+  padding: 0;
+}
+
+.vditor-toc::before{
+  display: none;
+}
+
+.vditor-toc ul {
+  border: none !important;
+  padding: 0 !important;
+}
+
+.vditor .vditor-reset .vditor-toc ul ul{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.vditor-toc li {
+  list-style: none !important;
+}
+
+.vditor-preview .vditor-reset .vditor-toc li{
+  margin: 0 !important;
+}
+
+.vditor-toc li span {
+  padding: 6px 2px;
+  font-size: 14px;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  margin-left: 0px;
+  /* text-decoration: underline; */
+  transition: background-color 20ms ease-in 0s;
+  cursor: pointer;
+  width: 100%;
+  color: rgba(55, 53, 47, 0.6);
+}
+
+.vditor-toc li span:hover{
+  background-color: rgba(55, 53, 47,0.08);
+}
+
+.vditor-toc ul ul > li > span{
+  padding-left: 24px;
+}
+
+.vditor-toc ul ul ul > li > span{
+  padding-left: 48px;
+}
+
+.vditor-toc ul ul ul ul > li > span{
+  padding-left: 72px;
+}
+
+.vditor-toc ul ul ul ul ul > li > span{
+  padding-left: 96px;
+}
+
+.vditor-toc ul ul ul ul ul ul > li > span{
+  padding-left: 120px;
 }
