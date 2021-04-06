@@ -865,9 +865,17 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
   > .vditor-content
   > .vditor-ir
   > .vditor-reset
+.vditor-ir__node[data-type="html-block"]:first-child {
+  margin-bottom: 2em;
+}
+
+.vditor:not(.panelVditor)
+  > .vditor-content
+  > .vditor-ir
+  > .vditor-reset
   > .vditor-ir__node--expand:first-child
   .vditor-ir__preview {
-  margin-top: -4px;
+  margin-top: -28px;
 }
 
 .vditor:not(.panelVditor)
@@ -876,7 +884,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
   > .vditor-reset
   > div[data-type="html-block"]:first-child
   .vditor-ir__preview {
-  transform: translateX(-23.5vw) translateY(-33vh);
+  transform: translateX(-23.1vw) translateY(-30.4vh);
   min-height: 0px;
   height: 0px;
 }
@@ -889,7 +897,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
   iframe {
   height: 28.5vh;
   min-height: 10vh;
-  width: 100vw;
+  width: 110vw;
   object-fit: cover;
 } */
 
