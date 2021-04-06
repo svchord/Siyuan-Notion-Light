@@ -81,6 +81,7 @@
 
   --NL-theme-color: rgb(55, 53, 47);
   --NL-theme-color-fade: rgba(55, 53, 47, 0.4);
+  --NL-theme-color-lightest: rgba(55, 53, 47, 0.1);
   --NL-theme-on-backgroud: var(--NL-theme-color);
   --NL-theme-on-surface: rgba(25, 23, 17, 0.6);
   --NL-theme-on-surface-focus: var(--NL-theme-color);
@@ -179,7 +180,7 @@
   /* 动画效果 */
   --b3-transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
 
-  --NL-toolbar-transition: opacity 400ms ease 0s;
+  --NL-toolbar-transition: opacity 700ms ease 0s;
   --NL-switch-button-transition: transform 200ms ease-out 0s;
   --NL-switch-background-transition: background-color 200ms ease-out 0s;
   --NL-search-transition: transform 200ms ease-in-out 0s,
@@ -307,19 +308,22 @@
 }
 
 @media only screen and (min-height: 400px) and (min-width: 500px) {
+  .vditor-toolbar__divider,
   .vditor-toolbar__item {
     transition: var(--NL-toolbar-transition);
     opacity: 0;
   }
 
-  .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__item {
+  .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__item,
+  .vditor-toolbar:not(.vditor-toolbar--hide):hover .vditor-toolbar__divider {
     opacity: 1;
   }
 }
 
 .vditor-toolbar__divider {
-  margin: 6px 4px;
-  height: 13px;
+  margin-top: 7px;
+  margin-bottom: 5px;
+  border-color: var(--NL-theme-color-lightest);
 }
 
 .vditor-toolbar__item[data-type="upload"] {
@@ -343,7 +347,7 @@
   margin-left: 12px !important;
 }
 
-.layout-tab-bar .item .item__text{
+.layout-tab-bar .item .item__text {
   line-height: 24px;
 }
 
@@ -1174,21 +1178,138 @@ div[data-type="block-render"] .vditor-reset > ul {
 
 /* 代码主题ant-design下的样式调整 */
 /* 代码块 */
-.hljs:not(.md) {
-  padding: 4px 16px;
+.vditor-ir__node[data-type="code-block"] {
+  padding: 0 !important;
+}
+
+.hljs:not(.md),
+.vditor-ir__node[data-type="code-block"] code {
+  padding: 34px 16px 32px 32px !important;
   line-height: 1.6 !important;
   border: none !important;
-  border-radius: 3px !important;
   background-image: none !important;
   background-color: var(--NL-theme-surface) !important;
 }
 
-.vditor-linenumber {
-  padding-left: 3.5em !important;
+/* :not(.vditor-ir__node--expand) */
+.vditor-ir__node[data-type="code-block"]::before,
+.vditor-ir__node[data-type="code-block"]::after,
+.vditor-ir__node[data-type="yaml-front-matter"]::before,
+.vditor-ir__node[data-type="yaml-front-matter"]::after {
+  display: none;
+}
+
+.vditor-ir__node[data-type="code-block"] {
+  position: relative;
+}
+
+.vditor-ir__marker[data-type="code-block-info"] {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: block !important;
+  z-index: 9;
+  width: auto;
+  padding-top: 1px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  min-width: 30px;
+  text-align: center;
+  line-height: 18px;
+  box-shadow: var(--NL-text-field-shadow);
+  /* border: 1px solid rgb(232, 231, 228); */
+  opacity: 0;
+  /* transition: opacity 300ms ease-in 0s !important; */
+}
+
+.vditor-ir__marker[data-type="code-block-info"]:hover,
+.vditor-ir__marker[data-type="code-block-info"]:focus-within {
+  opacity: 1;
+  /* background-color: rgba(55, 53, 47, 0.08); */
+}
+
+.vditor-ir__node[data-type="code-block"]:hover .vditor-ir__marker[data-type="code-block-info"],
+.vditor-ir__node[data-type="code-block"]:focus-within .vditor-ir__marker[data-type="code-block-info"]{
+  opacity: 1;
+}
+
+.vditor-ir__node .vditor-ir__marker[data-type="code-block-info"] {
+  display: block;
+  z-index: 9;
+  align-items: center;
+  white-space: nowrap;
+  height: 20px;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  padding-top: 1px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  color: rgba(55, 53, 47, 0.6) !important;
+}
+
+/* 代码块的行号 */
+.vditor-preview .hljs:not(.md).vditor-linenumber, 
+.vditor-ir__node[data-type="code-block"] code.vditor-linenumber {
+  padding-left: 72.8px !important;
 }
 
 .vditor-linenumber__rows {
-  transform: translateY(-1px);
+  transform: translateY(30px) translateX(32px);
+}
+
+.vditor-linenumber__rows > span::before {
+  text-align: center;
+  padding: 0;
+}
+
+/* 代码块的复制按钮 */
+.vditor-copy > .b3-tooltips__w {
+  display: inline-flex;
+  /* height: 25px; */
+  border-radius: 3px 0px 0px 3px;
+  padding: 4px 6px;
+  color: rgb(55, 53, 47);
+  background: rgb(234, 233, 229);
+}
+
+.vditor-copy{
+  display: block;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.vditor-reset pre:hover .vditor-copy{
+  opacity: 1;
+}
+
+.vditor-copy > .b3-tooltips__w svg {
+  width: 14px;
+  height: 16px;
+  display: inline-block;
+  transform: translateX(-27px);
+}
+
+.vditor-copy > .b3-tooltips__w:active{
+  background-color: rgba(55, 53, 47, 0.16);
+}
+
+.vditor-copy > .b3-tooltips__w::before{
+  content: 'Copy';
+  color: rgb(55, 53, 47);
+  display: inline-block;
+  width: auto;
+  height: auto;
+  border: none;
+  opacity: 1;
+  transform: none;
+  transition: none;
+  position: relative;
+  left: 16px;
+  top: 1px;
+  line-height: 21px;
+  font-size: 11.5px;
+  font-family: var(--b3-font-family);
 }
 
 .vditor-reset code:not(.hljs) {
@@ -1317,7 +1438,6 @@ div[data-type="block-render"] .vditor-reset > ul {
 /* 任务列表样式 */
 .vditor-task input {
   -webkit-appearance: none !important;
-  display: inline-block;
   user-select: none;
   transition: var(--NL-task-transition);
   width: 16px;
@@ -1326,6 +1446,7 @@ div[data-type="block-render"] .vditor-reset > ul {
   border: 2px solid var(--NL-theme-color);
   border-radius: 0 !important;
   transform: translateY(-2px);
+  margin-right: 10px;
 }
 
 .vditor-task input:hover {
@@ -1344,14 +1465,9 @@ div[data-type="block-render"] .vditor-reset > ul {
 }
 
 /* 任务列表选中后的文本样式 */
-.vditor-task--done p {
+.vditor-task--done {
   text-decoration: line-through;
   color: var(--NL-todolist-done-color);
-}
-
-/* 任务列表与文字的距离 */
-.vditor-task input[type="checkbox"] {
-  margin-right: 0.6em;
 }
 
 /* 标题块 */
@@ -1552,7 +1668,6 @@ blockquote {
   /* border: 1px solid var(--NL-tab-background-focus-hover) !important; */
 }
 
-.vditor .vditor-reset div[data-type="code-block"],
 .vditor-preview .hljs,
 span[data-type="img"] img,
 .vditor .vditor-reset blockquote,
