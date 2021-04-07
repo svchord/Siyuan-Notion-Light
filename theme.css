@@ -210,6 +210,7 @@
   --NL-pin-transition: transform 200ms ease-in-out;
   --NL-copy-transition: opacity 300ms ease-in;
   --NL-toc-transition: background-color 20ms ease-in 0s;
+  --NL-code-field-background-transition: background-color 20ms ease-in;
 
   /* 阴影 */
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -594,6 +595,7 @@
 .b3-tab-container code {
   font-weight: normal !important;
   color: var(--NL-vditor-inline-code-color);
+  background-color: var(--NL-vditor-inline-code-background) !important;
 }
 
 /* 搜索框 */
@@ -1168,14 +1170,14 @@ span[data-type="counter"]:active {
 
 .vditor .vditor-reset ul p,
 .vditor .vditor-reset ol p {
-  margin-bottom: 8px !important;
+  margin-bottom: 0.5em !important;
   line-height: 25px !important;
   padding: 0 !important;
 }
 
 .vditor-preview .vditor-reset ul li,
 .vditor-preview .vditor-reset ol li {
-  margin-bottom: 8px !important;
+  margin-bottom: 0.5em !important;
   line-height: 25px !important;
 }
 
@@ -1212,6 +1214,8 @@ div[data-type="block-render"] .vditor-reset > ul {
 /* 代码块 */
 .vditor-ir__node[data-type="code-block"] {
   padding: 0 !important;
+  position: relative;
+  display: block;
   margin-bottom: 9px;
 }
 
@@ -1225,18 +1229,15 @@ div[data-type="block-render"] .vditor-reset > ul {
   background-color: var(--NL-theme-surface) !important;
 }
 
-/* :not(.vditor-ir__node--expand) */
+/* ``` */
 .vditor-ir__node[data-type="code-block"]::before,
 .vditor-ir__node[data-type="code-block"]::after,
 .vditor-ir__node[data-type="yaml-front-matter"]::before,
 .vditor-ir__node[data-type="yaml-front-matter"]::after {
   display: none;
-}
+} /* :not(.vditor-ir__node--expand) */
 
-.vditor-ir__node[data-type="code-block"] {
-  position: relative;
-}
-
+/* 代码块类型输入区域 */
 .vditor-ir__node[data-type="code-block"] span.vditor-ir__marker--info {
   position: absolute;
   top: 8px;
@@ -1244,19 +1245,56 @@ div[data-type="block-render"] .vditor-reset > ul {
   display: block !important;
   z-index: 9;
   width: auto;
+  text-align: center;
   /* padding-top: 1px !important; */
   padding-left: 5px !important;
   padding-right: 5px !important;
   min-width: 30px;
   text-align: center;
   line-height: 18px;
-  background-color: var(--NL-code-field-background);
+  transition: var(--NL-code-field-background-transition);
+}
+
+.vditor-ir__node[data-type="code-block"] span.vditor-ir__marker--info::before {
+  content: "";
+  display: block;
+  float: left;
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  margin-right: 4px;
+  background-color: var(--NL-theme-color-lighter);
+  -webkit-mask: url("src/img/notes_black_24dp.svg") no-repeat;
+  mask: url("src/img/notes_black_24dp.svg") no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.vditor-ir__node .vditor-ir__marker[data-type="code-block-info"] {
+  display: block;
+  z-index: 9;
+  text-align: center;
+  align-items: center;
+  white-space: nowrap;
+  height: 20px;
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  /* padding-top: 1px !important; */
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  color: var(--NL-theme-color-lighter) !important;
 }
 
 .vditor-ir__node[data-type="code-block"]:not(.vditor-ir__node--expand)
   span.vditor-ir__marker--info {
   opacity: 0;
   transition: var(--NL-copy-transition);
+}
+
+.vditor-ir__node[data-type="code-block"].vditor-ir__node--expand
+  span.vditor-ir__marker--info {
+  background-color: var(--NL-code-field-background);
 }
 
 .vditor-ir__node[data-type="code-block"]:hover span.vditor-ir__marker--info,
@@ -1269,21 +1307,6 @@ div[data-type="block-render"] .vditor-reset > ul {
 .vditor-ir__node[data-type="code-block"]
   span.vditor-ir__marker--info:focus-within {
   opacity: 1;
-}
-
-.vditor-ir__node .vditor-ir__marker[data-type="code-block-info"] {
-  display: block;
-  z-index: 9;
-  align-items: center;
-  white-space: nowrap;
-  height: 20px;
-  border-radius: 3px;
-  font-size: 12px;
-  line-height: 18px;
-  /* padding-top: 1px !important; */
-  padding-left: 5px !important;
-  padding-right: 5px !important;
-  color: var(--NL-theme-color-lighter) !important;
   background-color: var(--NL-code-field-background);
 }
 
