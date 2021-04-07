@@ -1210,8 +1210,9 @@ div[data-type="block-render"] .vditor-reset > ul {
 
 .hljs:not(.md),
 .vditor-ir__node[data-type="code-block"] code {
-  padding: 34px 16px 32px 32px !important;
-  line-height: 1.6 !important;
+  padding: 35px 16px 32px 32px !important;
+  font-size: 85%;
+  line-height: 1.5 !important;
   border: none !important;
   background-image: none !important;
   background-color: var(--NL-theme-surface) !important;
@@ -1236,9 +1237,9 @@ div[data-type="block-render"] .vditor-reset > ul {
   display: block !important;
   z-index: 9;
   width: auto;
-  padding-top: 1px !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
+  /* padding-top: 1px !important; */
+  padding-left: 5px !important;
+  padding-right: 5px !important;
   min-width: 30px;
   text-align: center;
   line-height: 18px;
@@ -1270,9 +1271,9 @@ div[data-type="block-render"] .vditor-reset > ul {
   border-radius: 3px;
   font-size: 12px;
   line-height: 18px;
-  padding-top: 1px !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
+  /* padding-top: 1px !important; */
+  padding-left: 5px !important;
+  padding-right: 5px !important;
   color: var(--NL-theme-color-lighter) !important;
 }
 
@@ -1294,8 +1295,10 @@ div[data-type="block-render"] .vditor-reset > ul {
 /* 代码块的复制按钮 */
 .vditor-copy > .b3-tooltips__w {
   display: inline-flex;
-  /* height: 25px; */
-  border-radius: 3px 0px 0px 3px;
+  right: 4px;
+  top: 4px;
+  height: 17px;
+  border-radius: 3px;
   padding: 4px 6px;
   color: var(--NL-theme-color);
   background-color: var(--NL-copy-background);
@@ -1334,7 +1337,7 @@ div[data-type="block-render"] .vditor-reset > ul {
   transition: none;
   position: relative;
   left: 16px;
-  top: 1px;
+  top: 2px;
   line-height: 21px;
   font-size: 11.5px;
   font-family: var(--b3-font-family);
