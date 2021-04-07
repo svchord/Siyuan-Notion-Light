@@ -81,6 +81,7 @@
 
   --NL-theme-color: rgb(55, 53, 47);
   --NL-theme-color-fade: rgba(55, 53, 47, 0.4);
+  --NL-theme-color-lighter: rgba(55, 53, 47, 0.6);
   --NL-theme-color-lightest: rgba(55, 53, 47, 0.1);
   --NL-theme-on-backgroud: var(--NL-theme-color);
   --NL-theme-on-surface: rgba(25, 23, 17, 0.6);
@@ -104,6 +105,7 @@
 
   --NL-text-border-color: rgba(55, 53, 47, 0.09);
   --NL-table-border-color: rgba(237, 237, 236);
+  --NL-resize-color: rgba(0, 0, 0, 0.1);
 
   /* 滚动条 */
   --b3-scroll-color: var(--NL-scroll-color);
@@ -151,6 +153,12 @@
   --NL-button-background-focus-hover: rgb(205, 204, 201);
   --NL-button-background-focus-click: rgb(192, 191, 188);
 
+  --NL-copy-background: rgb(234, 233, 229);
+  --NL-copy-background-click: rgba(55, 53, 47, 0.16);
+
+  --NL-toc-background-hover: rgba(55, 53, 47, 0.08);
+  --NL-toc-background-click: rgba(55, 53, 47, 0.16);
+
   /* 块标菜单 */
   --NL-menu-color: rgb(195, 194, 192);
   --NL-menu-color-hover: rgb(184, 183, 181);
@@ -177,6 +185,13 @@
   --NL-setting-button-click-background: rgb(0, 141, 190);
   --NL-text-field-background: rgba(242, 241, 238, 0.6);
 
+  --NL-alias-background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(247, 246, 243, 0.7) 100%
+  );
+
   /* 动画效果 */
   --b3-transition: all 0.15s cubic-bezier(0, 0, 0.2, 1) 0ms;
 
@@ -191,6 +206,8 @@
   --NL-column-transition: width 300ms cubic-bezier(0, 0.6, 0.4, 1);
   --NL-popover-transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   --NL-pin-transition: transform 200ms ease-in-out;
+  --NL-copy-transition: opacity 300ms ease-in;
+  --NL-toc-transition: background-color 20ms ease-in 0s;
 
   /* 阴影 */
   --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -791,7 +808,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
 
 /* 分栏中间的分隔线 */
 .layout__resize:hover:after {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--NL-resize-color);
 }
 
 .layout__resize {
@@ -865,7 +882,7 @@ span[data-type="pin"]:not([aria-label="钉住"]) svg {
   > .vditor-content
   > .vditor-ir
   > .vditor-reset
-.vditor-ir__node[data-type="html-block"]:first-child {
+  .vditor-ir__node[data-type="html-block"]:first-child {
   margin-bottom: 2em;
 }
 
@@ -1188,6 +1205,7 @@ div[data-type="block-render"] .vditor-reset > ul {
 /* 代码块 */
 .vditor-ir__node[data-type="code-block"] {
   padding: 0 !important;
+  margin-bottom: 9px;
 }
 
 .hljs:not(.md),
@@ -1255,7 +1273,7 @@ div[data-type="block-render"] .vditor-reset > ul {
   padding-top: 1px !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
-  color: rgba(55, 53, 47, 0.6) !important;
+  color: var(--NL-theme-color-lighter) !important;
 }
 
 /* 代码块的行号 */
@@ -1279,14 +1297,14 @@ div[data-type="block-render"] .vditor-reset > ul {
   /* height: 25px; */
   border-radius: 3px 0px 0px 3px;
   padding: 4px 6px;
-  color: rgb(55, 53, 47);
-  background: rgb(234, 233, 229);
+  color: var(--NL-theme-color);
+  background-color: var(--NL-copy-background);
 }
 
 .vditor-copy {
   display: block;
   opacity: 0;
-  transition: opacity 300ms ease-in;
+  transition: var(--NL-copy-transition);
 }
 
 .vditor-reset pre:hover .vditor-copy {
@@ -1301,12 +1319,12 @@ div[data-type="block-render"] .vditor-reset > ul {
 }
 
 .vditor-copy > .b3-tooltips__w:active {
-  background-color: rgba(55, 53, 47, 0.16);
+  background-color: var(--NL-copy-background-click);
 }
 
 .vditor-copy > .b3-tooltips__w::before {
   content: "Copy";
-  color: rgb(55, 53, 47);
+  color: var(--NL-theme-color);
   display: inline-block;
   width: auto;
   height: auto;
@@ -1582,12 +1600,7 @@ span[data-type="a"]:hover {
 
 /* 命名、别名的样式 */
 .vditor .vditor-reset *[tip]:not([fold="1"]) {
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.7) 50%,
-    rgba(247, 246, 243, 0.7) 100%
-  );
+  background-image: var(--NL-alias-background);
 }
 
 .vditor .vditor-reset *[tip]:not([fold="1"])::before {
@@ -1759,11 +1772,11 @@ kbd {
 }
 
 /* TOC目录 */
-.vditor-toc{
+.vditor-toc {
   padding: 0;
 }
 
-.vditor-toc::before{
+.vditor-toc::before {
   display: none;
 }
 
@@ -1772,7 +1785,7 @@ kbd {
   padding: 0 !important;
 }
 
-.vditor .vditor-reset .vditor-toc ul ul{
+.vditor .vditor-reset .vditor-toc ul ul {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -1781,11 +1794,11 @@ kbd {
   list-style: none !important;
 }
 
-.vditor-preview .vditor-reset .vditor-toc li{
+.vditor-preview .vditor-reset .vditor-toc li {
   margin: 0 !important;
 }
 
-.vditor-toc li span {
+.vditor-toc li > span {
   padding: 6px 2px;
   font-size: 14px;
   line-height: 1.3;
@@ -1793,32 +1806,36 @@ kbd {
   align-items: center;
   margin-left: 0px;
   /* text-decoration: underline; */
-  transition: background-color 20ms ease-in 0s;
+  transition: var(--NL-toc-transition);
   cursor: pointer;
   width: 100%;
-  color: rgba(55, 53, 47, 0.6);
+  color: var(--NL-theme-color-lighter);
 }
 
-.vditor-toc li span:hover{
-  background-color: rgba(55, 53, 47,0.08);
+.vditor-toc li > span:hover {
+  background-color: var(--NL-toc-background-hover);
 }
 
-.vditor-toc ul ul > li > span{
+.vditor-toc li > span:active {
+  background-color: var(--NL-toc-background-click);
+}
+
+.vditor-toc ul ul > li > span {
   padding-left: 24px;
 }
 
-.vditor-toc ul ul ul > li > span{
+.vditor-toc ul ul ul > li > span {
   padding-left: 48px;
 }
 
-.vditor-toc ul ul ul ul > li > span{
+.vditor-toc ul ul ul ul > li > span {
   padding-left: 72px;
 }
 
-.vditor-toc ul ul ul ul ul > li > span{
+.vditor-toc ul ul ul ul ul > li > span {
   padding-left: 96px;
 }
 
-.vditor-toc ul ul ul ul ul ul > li > span{
+.vditor-toc ul ul ul ul ul ul > li > span {
   padding-left: 120px;
 }
