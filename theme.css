@@ -153,6 +153,8 @@
   --NL-button-background-focus-hover: rgb(205, 204, 201);
   --NL-button-background-focus-click: rgb(192, 191, 188);
 
+  --NL-code-field-background: rgba(55, 53, 47, 0.08);
+
   --NL-copy-background: rgb(234, 233, 229);
   --NL-copy-background-click: rgba(55, 53, 47, 0.16);
 
@@ -1230,7 +1232,7 @@ div[data-type="block-render"] .vditor-reset > ul {
   position: relative;
 }
 
-.vditor-ir__marker[data-type="code-block-info"] {
+.vditor-ir__node[data-type="code-block"] span.vditor-ir__marker--info {
   position: absolute;
   top: 8px;
   left: 8px;
@@ -1243,22 +1245,24 @@ div[data-type="block-render"] .vditor-reset > ul {
   min-width: 30px;
   text-align: center;
   line-height: 18px;
-  box-shadow: var(--NL-text-field-shadow);
-  /* border: 1px solid rgb(232, 231, 228); */
+  background-color: var(--NL-code-field-background);
+}
+
+.vditor-ir__node[data-type="code-block"]:not(.vditor-ir__node--expand)
+  span.vditor-ir__marker--info {
   opacity: 0;
-  /* transition: opacity 300ms ease-in 0s !important; */
+  transition: var(--NL-copy-transition);
 }
 
-.vditor-ir__marker[data-type="code-block-info"]:hover,
-.vditor-ir__marker[data-type="code-block-info"]:focus-within {
-  opacity: 1;
-  /* background-color: rgba(55, 53, 47, 0.08); */
-}
-
-.vditor-ir__node[data-type="code-block"]:hover
-  .vditor-ir__marker[data-type="code-block-info"],
+.vditor-ir__node[data-type="code-block"]:hover span.vditor-ir__marker--info,
 .vditor-ir__node[data-type="code-block"]:focus-within
-  .vditor-ir__marker[data-type="code-block-info"] {
+  span.vditor-ir__marker--info {
+  opacity: 1;
+}
+
+.vditor-ir__node[data-type="code-block"] span.vditor-ir__marker--info:hover,
+.vditor-ir__node[data-type="code-block"]
+  span.vditor-ir__marker--info:focus-within {
   opacity: 1;
 }
 
@@ -1275,6 +1279,7 @@ div[data-type="block-render"] .vditor-reset > ul {
   padding-left: 5px !important;
   padding-right: 5px !important;
   color: var(--NL-theme-color-lighter) !important;
+  background-color: var(--NL-code-field-background);
 }
 
 /* 代码块的行号 */
