@@ -303,6 +303,10 @@
   fill: transparent;
 }
 
+* {
+  caret-color: var(--NL-theme-color);
+}
+
 /* UI样式 */
 /* 字数计数器 */
 .vditor-counter {
@@ -589,6 +593,7 @@
 
 .b3-tab-container code {
   font-weight: normal !important;
+  color: var(--NL-vditor-inline-code-color);
 }
 
 /* 搜索框 */
@@ -1213,8 +1218,8 @@ div[data-type="block-render"] .vditor-reset > ul {
 .hljs:not(.md),
 .vditor-ir__node[data-type="code-block"] code {
   padding: 35px 16px 32px 32px !important;
-  font-size: 85%;
-  line-height: 1.5 !important;
+  font-size: 85% !important;
+  line-height: 1.6 !important;
   border: none !important;
   background-image: none !important;
   background-color: var(--NL-theme-surface) !important;
