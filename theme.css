@@ -1343,7 +1343,7 @@ div[data-type="block-render"] .vditor-reset > ul {
   transition: var(--NL-copy-transition);
 }
 
-.vditor-reset pre:hover .vditor-copy {
+.vditor-reset .vditor-ir__node[data-type="code-block"]:hover .vditor-copy {
   opacity: 1;
 }
 
