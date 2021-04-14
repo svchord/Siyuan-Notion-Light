@@ -573,9 +573,21 @@
 }
 
 /* 菜单样式 */
+.b3-menu__submenu,
 .b3-menu:not(.b3-list) {
   border-radius: 3px;
   animation: showBlock 0.3s ease-in-out;
+}
+
+.b3-menu__submenu {
+  z-index: 99;
+  border-radius: 3px;
+  left: calc(100% + 1px) !important;
+}
+
+.b3-menu__item--readonly .b3-menu__label {
+  color: var(--NL-theme-color-fade);
+  line-height: 20px;
 }
 
 /* 顶栏弹出菜单 */
@@ -1265,6 +1277,7 @@ div[data-type="block-render"] .vditor-reset > ul {
   min-width: 30px;
   text-align: center;
   line-height: 18px;
+  color: var(--NL-theme-color-lighter) !important;
   transition: var(--NL-code-field-background-transition);
 }
 
